@@ -1,0 +1,27 @@
+PODS:
+  - HaventecCommon (0.1.0)
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+
+DEPENDENCIES:
+  - HaventecCommon (from `../`)
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  HaventecCommon:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HaventecCommon: 9e764e2a5e4439cad4e229f13de2f1aec2dbd4b4
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+
+PODFILE CHECKSUM: c060300a1766fb6bc67bac8a65dab26efd5ce5f6
+
+COCOAPODS: 1.6.0.rc.1

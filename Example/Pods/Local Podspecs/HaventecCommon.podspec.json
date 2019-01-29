@@ -1,0 +1,22 @@
+{
+  "name": "HaventecCommon",
+  "version": "0.1.0",
+  "summary": "A short description of HaventecCommon.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Clifford Phan/HaventecCommon",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Clifford Phan": "clifford.phan@haventec.com"
+  },
+  "source": {
+    "git": "https://github.com/Clifford Phan/HaventecCommon.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "HaventecCommon/Classes/**/*"
+}

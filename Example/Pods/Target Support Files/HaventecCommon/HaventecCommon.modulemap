@@ -1,0 +1,6 @@
+framework module HaventecCommon {
+  umbrella header "HaventecCommon-umbrella.h"
+
+  export *
+  module * { export * }
+}
