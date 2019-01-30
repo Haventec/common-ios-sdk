@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		936EADF3F66A59EF4CDE154B /* Pods_HaventecCommon_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94467B131991DD93546BB5C5 /* Pods_HaventecCommon_Example.framework */; };
 		9D82149C63717604042FABB0 /* Pods_HaventecCommon_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD45C37BCAE579C752101E8 /* Pods_HaventecCommon_Tests.framework */; };
+		E3C3ABE722015A640072D5C2 /* HaventecHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE622015A640072D5C2 /* HaventecHelperTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		913341843CE1BA3DA37E12C2 /* Pods-HaventecCommon_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaventecCommon_Tests.debug.xcconfig"; path = "Target Support Files/Pods-HaventecCommon_Tests/Pods-HaventecCommon_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		94467B131991DD93546BB5C5 /* Pods_HaventecCommon_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaventecCommon_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		947369620D6409C6CAF0B23A /* Pods-HaventecCommon_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaventecCommon_Example.debug.xcconfig"; path = "Target Support Files/Pods-HaventecCommon_Example/Pods-HaventecCommon_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E3C3ABE522015A640072D5C2 /* HaventecCommon_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HaventecCommon_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		E3C3ABE622015A640072D5C2 /* HaventecHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaventecHelperTest.swift; sourceTree = "<group>"; };
 		F3210E129FD4404A012B5144 /* HaventecCommon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HaventecCommon.podspec; path = ../HaventecCommon.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				E3C3ABE622015A640072D5C2 /* HaventecHelperTest.swift */,
+				E3C3ABE522015A640072D5C2 /* HaventecCommon_Tests-Bridging-Header.h */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -215,7 +220,7 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 47ABDKPX75;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -342,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3C3ABE722015A640072D5C2 /* HaventecHelperTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 913341843CE1BA3DA37E12C2 /* Pods-HaventecCommon_Tests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 47ABDKPX75;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -523,6 +530,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/HaventecCommon_Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HaventecCommon_Example.app/HaventecCommon_Example";
@@ -533,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3507711FD28E7598069AA5FC /* Pods-HaventecCommon_Tests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 47ABDKPX75;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -542,6 +552,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/HaventecCommon_Tests-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HaventecCommon_Example.app/HaventecCommon_Example";
