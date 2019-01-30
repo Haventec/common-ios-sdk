@@ -4,6 +4,8 @@ import CommonCrypto
 
 open class HaventecHelper {
     
+    public init(){}
+    
     enum HaventecError: Error {
         case generateSalt
     }
