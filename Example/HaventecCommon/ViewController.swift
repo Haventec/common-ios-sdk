@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import HaventecCommon
 
 class ViewController: UIViewController {
-
+    // Normal Properties
+    var hashPin: String!
+    
+    // Button Properties
+    @IBOutlet weak var pin: UITextField!
+    @IBOutlet weak var hashButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -18,6 +25,21 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func generateHashPin() {
+        let haventec = HaventecHelper()
+        let salt = try? haventec.generateSalt(size: 128)
+        
+        self.hashPin = haventec.hashPin(salt: salt!, pin: self.pin.text!)
+    }
+    
+    @IBAction func hashButtonPressed() {
+        self.generateHashPin()
+    }
+    
+    @IBAction func checkPinLength() {
+        
     }
 
 }

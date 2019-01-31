@@ -1,21 +1,12 @@
 import Foundation
 import CommonCrypto
 
-open class HaventecHelper {
+public class HaventecHelper {
     
     public init(){}
     
     enum HaventecError: Error {
         case generateSalt
-    }
-    
-    public func generateBytes(length : Int) throws -> NSData? {
-        var bytes = [Int32](repeating: Int32(0), count: length)
-        let statusCode = CCRandomGenerateBytes(&bytes, bytes.count)
-        if statusCode != CCRNGStatus(kCCSuccess) {
-            return nil
-        }
-        return NSData(bytes: bytes, length: bytes.count)
     }
     
     public func generateSalt(size: Int) throws -> String {
@@ -55,7 +46,7 @@ open class HaventecHelper {
     }
     
     
-    public func doHash(salt: String, pin: String) -> String {
+    public func hashPin(salt: String, pin: String) -> String {
         var basePin: String = ""
         if let dataPin = salt.data(using: .utf8) {
             basePin = dataPin.base64EncodedString()
@@ -63,13 +54,23 @@ open class HaventecHelper {
         
         let saltString: String = salt + basePin;
         
+        // Issue here
         let shaString: String = sha512Base64(instring: saltString)
         
         return shaString
     }
     
+    private func generateBytes(length : Int) throws -> NSData? {
+        var bytes = [Int32](repeating: Int32(0), count: length)
+        let statusCode = CCRandomGenerateBytes(&bytes, bytes.count)
+        if statusCode != CCRNGStatus(kCCSuccess) {
+            return nil
+        }
+        return NSData(bytes: bytes, length: bytes.count)
+    }
     
-    func sha512Base64(instring: String) -> String {
+    // Issue
+    private func sha512Base64(instring: String) -> String {
         let digest = NSMutableData(length: Int(CC_SHA512_DIGEST_LENGTH))!
         if let data = instring.data(using: String.Encoding.utf8) {
             
@@ -81,7 +82,7 @@ open class HaventecHelper {
         return digest.base64EncodedString(options: NSData.Base64EncodingOptions([]))
     }
     
-    func sha512Hex( string: String) -> String {
+    private func sha512Hex( string: String) -> String {
         var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
         if let data = string.data(using: String.Encoding.utf8) {
             let value =  data as NSData
@@ -95,17 +96,6 @@ open class HaventecHelper {
         
         return digestHex
     }
-    
-    
-    func sha512(string: String) -> [UInt8] {
-        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
-        let data = string.data(using: String.Encoding.utf8 , allowLossyConversion: true)
-        let value =  data! as NSData
-        CC_SHA512(value.bytes, CC_LONG(value.length), &digest)
-        
-        return digest
-    }
-    
     
     //    public func sha512Hex(instring: String) -> String {
     //        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
@@ -131,4 +121,13 @@ open class HaventecHelper {
     ////
     ////        return digestHex
     //    }
+    
+    private func sha512(string: String) -> [UInt8] {
+        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
+        let data = string.data(using: String.Encoding.utf8 , allowLossyConversion: true)
+        let value =  data! as NSData
+        CC_SHA512(value.bytes, CC_LONG(value.length), &digest)
+        
+        return digest
+    }
 }

@@ -17,7 +17,6 @@ class HaventecHelperTest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
     }
 
     override func tearDown() {
@@ -39,24 +38,10 @@ class HaventecHelperTest: XCTestCase {
         }
     }
     
-    func testDoHash() {
+    func testHashPin() {
         let haventec = HaventecHelper()
         let saltString = try? haventec.generateSalt(size: 128)
-        let shaString: String = haventec.doHash(salt: saltString!, pin: "1234")
-        
-        
+        let shaString: String = haventec.hashPin(salt: saltString!, pin: "1234")
+        print(shaString)
     }
-    
-//    public func doHash(salt: String, pin: String) -> String {
-//        var basePin: String = ""
-//        if let dataPin = salt.data(using: .utf8) {
-//            basePin = dataPin.base64EncodedString()
-//        }
-//
-//        let saltString: String = salt + basePin;
-//
-//        let shaString: String = sha512Base64(instring: saltString)
-//
-//        return shaString
-//    }
 }
