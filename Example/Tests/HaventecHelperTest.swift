@@ -54,10 +54,7 @@ class HaventecHelperTest: XCTestCase {
         let hashedPinA: String = haventec.hashPin(salt: salt, pin: "1234")
         let hashedPinB: String = haventec.hashPin(salt: salt, pin: "7890")
         
-        if hashedPinA == hashedPinB {
-            print(hashedPinA)
-            print(hashedPinB)
-        } else {
+        if hashedPinA != hashedPinB {
             XCTFail()
         }
     }

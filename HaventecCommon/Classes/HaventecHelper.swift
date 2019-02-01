@@ -10,12 +10,12 @@ public class HaventecHelper {
     }
     
     public func generateSalt(size: Int) throws -> String {
-        var saltArray: [Int32] = [];
+        var saltArray: [Int32] = []
         
         for _ in 0..<size {
             var intOut: Int32 = 0;
-            let dataBytes = try? generateBytes(length: 4)
-            if let data: NSData = dataBytes as? NSData {
+            
+            if let dataBytes = try? generateBytes(length: 4), let data = dataBytes {
                 data.getBytes(&intOut, length: MemoryLayout<Int32>.size)
                 saltArray.append(intOut);
             } else {
@@ -84,29 +84,5 @@ public class HaventecHelper {
         }
         
         return shaString
-    }
-    
-    private func sha512Hex( string: String) -> String {
-        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
-        if let data = string.data(using: String.Encoding.utf8) {
-            let value =  data as NSData
-            CC_SHA512(value.bytes, CC_LONG(data.count), &digest)
-            
-        }
-        var digestHex = ""
-        for index in 0..<Int(CC_SHA512_DIGEST_LENGTH) {
-            digestHex += String(format: "%02x", digest[index])
-        }
-        
-        return digestHex
-    }
-    
-    private func sha512(string: String) -> [UInt8] {
-        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
-        let data = string.data(using: String.Encoding.utf8 , allowLossyConversion: true)
-        let value =  data! as NSData
-        CC_SHA512(value.bytes, CC_LONG(value.length), &digest)
-        
-        return digest
     }
 }
