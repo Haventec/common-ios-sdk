@@ -2,14 +2,11 @@ import Foundation
 import CommonCrypto
 
 public class HaventecHelper {
-    
-    public init(){}
-    
     enum HaventecError: Error {
         case generateSalt
     }
     
-    public func generateSalt(size: Int) throws -> String {
+    public static func generateSalt(size: Int) throws -> String {
         var saltArray: [Int32] = []
         
         for _ in 0..<size {
@@ -45,7 +42,7 @@ public class HaventecHelper {
     }
     
     
-    public func hashPin(salt: String, pin: String) -> String {
+    public static func hashPin(salt: String, pin: String) -> String {
         var basePin: String = ""
         if let dataPin = salt.data(using: .utf8) {
             basePin = dataPin.base64EncodedString()
@@ -58,7 +55,7 @@ public class HaventecHelper {
         return shaString
     }
     
-    private func generateBytes(length : Int) throws -> NSData? {
+    private static func generateBytes(length : Int) throws -> NSData? {
         var bytes = [Int32](repeating: Int32(0), count: length)
         let statusCode = CCRandomGenerateBytes(&bytes, bytes.count)
         if statusCode != CCRNGStatus(kCCSuccess) {
@@ -67,7 +64,7 @@ public class HaventecHelper {
         return NSData(bytes: bytes, length: bytes.count)
     }
     
-    private func sha512Base64(instring: String) -> String {
+    private static func sha512Base64(instring: String) -> String {
         var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
         if let data = instring.data(using: String.Encoding.utf8) {
             data.withUnsafeBytes({

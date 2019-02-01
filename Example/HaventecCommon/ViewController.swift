@@ -28,10 +28,9 @@ class ViewController: UIViewController {
     }
     
     func generateHashPin() {
-        let haventec = HaventecHelper()
-        let salt = try? haventec.generateSalt(size: 128)
+        let salt = try? HaventecHelper.generateSalt(size: 128)
         
-        self.hashPin = haventec.hashPin(salt: salt!, pin: self.pin.text!)
+        self.hashPin = HaventecHelper.hashPin(salt: salt!, pin: self.pin.text!)
     }
     
     @IBAction func hashButtonPressed() {
