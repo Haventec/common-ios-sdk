@@ -54,7 +54,6 @@ public class HaventecHelper {
         
         let saltString: String = salt + basePin;
         
-        // Issue here
         let shaString: String = sha512Base64(instring: saltString)
         
         return shaString
@@ -69,17 +68,47 @@ public class HaventecHelper {
         return NSData(bytes: bytes, length: bytes.count)
     }
     
-    // Issue
     private func sha512Base64(instring: String) -> String {
-        let digest = NSMutableData(length: Int(CC_SHA512_DIGEST_LENGTH))!
+        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
         if let data = instring.data(using: String.Encoding.utf8) {
-            
-            let value =  data as NSData
-            let uint8Pointer = UnsafeMutablePointer<UInt8>.allocate(capacity: digest.length)
-            CC_SHA512(value.bytes, CC_LONG(data.count), uint8Pointer)
-            
+            data.withUnsafeBytes({
+                _ = CC_SHA512($0, CC_LONG(data.count), &digest)
+            })
         }
-        return digest.base64EncodedString(options: NSData.Base64EncodingOptions([]))
+        
+        var shaString = digest.map({ String(format: "%02hhx", $0) }).joined(separator: "")
+        
+        if let result: Data = shaString.data(using: String.Encoding.utf8) {
+           shaString = result.base64EncodedString()
+        } else {
+            shaString = ""
+        }
+        
+        return shaString
+        
+//  Previous implementation
+//        let digest = NSMutableData(length: Int(CC_SHA512_DIGEST_LENGTH))!
+//        if let data = instring.data(using: String.Encoding.utf8) {
+//
+//            let value =  data as NSData
+//            let uint8Pointer = UnsafeMutablePointer<UInt8>.allocate(capacity: digest.length)
+//            CC_SHA512(value.bytes, CC_LONG(data.count), uint8Pointer)
+//
+//        }
+//        return digest.base64EncodedString(options: NSData.Base64EncodingOptions([]))
+        
+//        extension String {
+//
+//            func sha512() -> String {
+//                let data = self.data(using: .utf8)!
+//                var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
+//                data.withUnsafeBytes({
+//                    _ = CC_SHA512($0, CC_LONG(data.count), &digest)
+//                })
+//                return digest.map({ String(format: "%02hhx", $0) }).joined(separator: "")
+//            }
+//
+//        }
     }
     
     private func sha512Hex( string: String) -> String {
