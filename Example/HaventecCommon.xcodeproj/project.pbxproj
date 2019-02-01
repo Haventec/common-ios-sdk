@@ -14,7 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		936EADF3F66A59EF4CDE154B /* Pods_HaventecCommon_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94467B131991DD93546BB5C5 /* Pods_HaventecCommon_Example.framework */; };
 		9D82149C63717604042FABB0 /* Pods_HaventecCommon_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD45C37BCAE579C752101E8 /* Pods_HaventecCommon_Tests.framework */; };
-		E3C3ABE722015A640072D5C2 /* HaventecHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE622015A640072D5C2 /* HaventecHelperTest.swift */; };
+		E3C3ABE722015A640072D5C2 /* HaventecCommonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		913341843CE1BA3DA37E12C2 /* Pods-HaventecCommon_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaventecCommon_Tests.debug.xcconfig"; path = "Target Support Files/Pods-HaventecCommon_Tests/Pods-HaventecCommon_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		94467B131991DD93546BB5C5 /* Pods_HaventecCommon_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaventecCommon_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		947369620D6409C6CAF0B23A /* Pods-HaventecCommon_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaventecCommon_Example.debug.xcconfig"; path = "Target Support Files/Pods-HaventecCommon_Example/Pods-HaventecCommon_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E3C3ABE622015A640072D5C2 /* HaventecHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaventecHelperTest.swift; sourceTree = "<group>"; };
+		E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaventecCommonTest.swift; sourceTree = "<group>"; };
 		F3210E129FD4404A012B5144 /* HaventecCommon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HaventecCommon.podspec; path = ../HaventecCommon.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
-				E3C3ABE622015A640072D5C2 /* HaventecHelperTest.swift */,
+				E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3C3ABE722015A640072D5C2 /* HaventecHelperTest.swift in Sources */,
+				E3C3ABE722015A640072D5C2 /* HaventecCommonTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

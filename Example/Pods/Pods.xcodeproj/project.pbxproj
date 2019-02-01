@@ -12,7 +12,7 @@
 		56FE41B4F5366AB529DED1875F8F68B0 /* HaventecCommon-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2555494C92056F67D52AF4D9E2FA60C8 /* HaventecCommon-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62BC7DD5AB09C384C3D72472CAF59366 /* Pods-HaventecCommon_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 646A9ACC9CC02CFDBCF84099B44F0CBE /* Pods-HaventecCommon_Example-dummy.m */; };
 		6CCA79604935A2A6AA77A9FF39E3E767 /* HaventecCommon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C012A44B4509686AEF8DF904121D8C3 /* HaventecCommon-dummy.m */; };
-		9E88A059826954DBDC2B6E1ABFD8F16D /* HaventecHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A510B3FF41694ABA2803214D41F52 /* HaventecHelper.swift */; };
+		9E88A059826954DBDC2B6E1ABFD8F16D /* HaventecCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A510B3FF41694ABA2803214D41F52 /* HaventecCommon.swift */; };
 		B1F136895C5DDCF37E413C21EDAF70CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		D5A4CD15BCB7A1BC30F0ABCE5CBCF0F2 /* Pods-HaventecCommon_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DB86483A13CF6C765FE26B0E2A9D12B /* Pods-HaventecCommon_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4E06E1D643B24B6600D9EA02E0D8C08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
@@ -39,17 +39,17 @@
 /* Begin PBXFileReference section */
 		00926F5DF56543B80241F2C269850B7E /* Pods-HaventecCommon_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HaventecCommon_Example.modulemap"; sourceTree = "<group>"; };
 		071FAC4F177CC3230D42040E7D0DF9F1 /* HaventecCommon-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HaventecCommon-Info.plist"; sourceTree = "<group>"; };
-		091CC3A5004B312C3382104FF4CBA2E5 /* Pods_HaventecCommon_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HaventecCommon_Tests.framework; path = "Pods-HaventecCommon_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		091CC3A5004B312C3382104FF4CBA2E5 /* Pods_HaventecCommon_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaventecCommon_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA480CDFFE7C0C6331D53E8057FE20F /* Pods-HaventecCommon_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HaventecCommon_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		0E74E92D500289061B91DC56AA72D19C /* Pods-HaventecCommon_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HaventecCommon_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		11238E71EC63E1E06F8A20B927A24D8A /* Pods_HaventecCommon_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HaventecCommon_Example.framework; path = "Pods-HaventecCommon_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11238E71EC63E1E06F8A20B927A24D8A /* Pods_HaventecCommon_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaventecCommon_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12B086BB3ED940C2ABB0F9AE6F01471C /* HaventecCommon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HaventecCommon.modulemap; sourceTree = "<group>"; };
-		15CEA3AADCE4E4E4F7F3A939D39F9BE2 /* HaventecCommon.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HaventecCommon.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		15CEA3AADCE4E4E4F7F3A939D39F9BE2 /* HaventecCommon.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = HaventecCommon.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2555494C92056F67D52AF4D9E2FA60C8 /* HaventecCommon-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HaventecCommon-umbrella.h"; sourceTree = "<group>"; };
 		29817A346B0D2EFC52A85D87A6F375A3 /* Pods-HaventecCommon_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HaventecCommon_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		2E6D90F07E460EA87D371EA99E31683C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		2E6D90F07E460EA87D371EA99E31683C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		318F869C0473EBF219457A0FF1CA914B /* Pods-HaventecCommon_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HaventecCommon_Example.release.xcconfig"; sourceTree = "<group>"; };
-		35A30E2D86C20F4FF7FEC7A1EC003EE1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		35A30E2D86C20F4FF7FEC7A1EC003EE1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		37A8EFD14B55CAAD4AD95DCC7A221352 /* Pods-HaventecCommon_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HaventecCommon_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		3DAB2322627ACE0B8073531FB5914CD9 /* Pods-HaventecCommon_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HaventecCommon_Example-umbrella.h"; sourceTree = "<group>"; };
 		579DD8BA23DC85D1D4F0A96AE8E26F85 /* HaventecCommon.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HaventecCommon.xcconfig; sourceTree = "<group>"; };
@@ -58,17 +58,17 @@
 		7A9017A7B129C999EF46841CBF696905 /* Pods-HaventecCommon_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HaventecCommon_Tests-dummy.m"; sourceTree = "<group>"; };
 		8D60FDEE6B04072FD7E941E23FBD470B /* Pods-HaventecCommon_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HaventecCommon_Tests-Info.plist"; sourceTree = "<group>"; };
 		8DB86483A13CF6C765FE26B0E2A9D12B /* Pods-HaventecCommon_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HaventecCommon_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A27A7AFEDD65FB6B937AAE0DF6F38C48 /* Pods-HaventecCommon_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HaventecCommon_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B58F7F7E037FF8B992843372F39F8BEA /* Pods-HaventecCommon_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HaventecCommon_Example-Info.plist"; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CE67BB0066E7D367C0202180FCD72836 /* Pods-HaventecCommon_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HaventecCommon_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D8E3E7675D51546CC6361460CDE7EE9D /* HaventecCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HaventecCommon.framework; path = HaventecCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8E3E7675D51546CC6361460CDE7EE9D /* HaventecCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HaventecCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DBCCDB9B7D56C437D755DAA9D48090 /* Pods-HaventecCommon_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HaventecCommon_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ED1D31FBA6939A5A4F56EDDAD3CF6B0D /* HaventecCommon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HaventecCommon-prefix.pch"; sourceTree = "<group>"; };
 		F7873A7D6902194D9AD17E5CEC82C1DB /* Pods-HaventecCommon_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HaventecCommon_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		FF5BEF59A11E5AF0421ECE31005A25A5 /* Pods-HaventecCommon_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HaventecCommon_Tests.modulemap"; sourceTree = "<group>"; };
-		FF8A510B3FF41694ABA2803214D41F52 /* HaventecHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HaventecHelper.swift; path = HaventecCommon/Classes/HaventecHelper.swift; sourceTree = "<group>"; };
+		FF8A510B3FF41694ABA2803214D41F52 /* HaventecCommon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HaventecCommon.swift; path = HaventecCommon/Classes/HaventecCommon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +184,7 @@
 		C8DB3BBDA8905DB6A299EA939F36460A /* HaventecCommon */ = {
 			isa = PBXGroup;
 			children = (
-				FF8A510B3FF41694ABA2803214D41F52 /* HaventecHelper.swift */,
+				FF8A510B3FF41694ABA2803214D41F52 /* HaventecCommon.swift */,
 				FE137FA6E7447F04F0BD0A53C987A611 /* Pod */,
 				976CAE56D441F5C13F69B851A0E9030C /* Support Files */,
 			);
@@ -373,7 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CCA79604935A2A6AA77A9FF39E3E767 /* HaventecCommon-dummy.m in Sources */,
-				9E88A059826954DBDC2B6E1ABFD8F16D /* HaventecHelper.swift in Sources */,
+				9E88A059826954DBDC2B6E1ABFD8F16D /* HaventecCommon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,8 +717,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};

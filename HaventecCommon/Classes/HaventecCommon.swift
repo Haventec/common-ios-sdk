@@ -1,7 +1,7 @@
 import Foundation
 import CommonCrypto
 
-public class HaventecHelper {
+public class HaventecCommon {
     enum HaventecError: Error {
         case generateSalt
     }
