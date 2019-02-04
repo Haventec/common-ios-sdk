@@ -41,7 +41,6 @@ public class HaventecCommon {
         return returnString
     }
     
-    
     public static func hashPin(salt: String, pin: String) -> String {
         var basePin: String = ""
         if let dataPin = salt.data(using: .utf8) {
@@ -65,21 +64,14 @@ public class HaventecCommon {
     }
     
     private static func sha512Base64(instring: String) -> String {
-        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
+        let digest = NSMutableData(length: Int(CC_SHA512_DIGEST_LENGTH))!
         if let data = instring.data(using: String.Encoding.utf8) {
-            data.withUnsafeBytes({
-                _ = CC_SHA512($0, CC_LONG(data.count), &digest)
-            })
+            
+            let value =  data as NSData
+            let uint8Pointer = UnsafeMutablePointer<UInt8>.allocate(capacity: digest.length)
+            CC_SHA512(value.bytes, CC_LONG(data.count), uint8Pointer)
+            
         }
-        
-        var shaString = digest.map({ String(format: "%02hhx", $0) }).joined(separator: "")
-        
-        if let result: Data = shaString.data(using: String.Encoding.utf8) {
-           shaString = result.base64EncodedString()
-        } else {
-            shaString = ""
-        }
-        
-        return shaString
+        return digest.base64EncodedString(options: NSData.Base64EncodingOptions([]))
     }
 }

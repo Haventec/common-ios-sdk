@@ -15,6 +15,8 @@
 		936EADF3F66A59EF4CDE154B /* Pods_HaventecCommon_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94467B131991DD93546BB5C5 /* Pods_HaventecCommon_Example.framework */; };
 		9D82149C63717604042FABB0 /* Pods_HaventecCommon_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD45C37BCAE579C752101E8 /* Pods_HaventecCommon_Tests.framework */; };
 		E3C3ABE722015A640072D5C2 /* HaventecCommonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */; };
+		E3C3ABEA220580E50072D5C2 /* AddDeviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE9220580E50072D5C2 /* AddDeviceResponse.swift */; };
+		E3C3ABEE22058A0B0072D5C2 /* ActivateDeviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABED22058A0B0072D5C2 /* ActivateDeviceResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		94467B131991DD93546BB5C5 /* Pods_HaventecCommon_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaventecCommon_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		947369620D6409C6CAF0B23A /* Pods-HaventecCommon_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaventecCommon_Example.debug.xcconfig"; path = "Target Support Files/Pods-HaventecCommon_Example/Pods-HaventecCommon_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaventecCommonTest.swift; sourceTree = "<group>"; };
+		E3C3ABE9220580E50072D5C2 /* AddDeviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceResponse.swift; sourceTree = "<group>"; };
+		E3C3ABED22058A0B0072D5C2 /* ActivateDeviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateDeviceResponse.swift; sourceTree = "<group>"; };
 		F3210E129FD4404A012B5144 /* HaventecCommon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HaventecCommon.podspec; path = ../HaventecCommon.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +108,7 @@
 		607FACD21AFB9204008FA782 /* Example for HaventecCommon */ = {
 			isa = PBXGroup;
 			children = (
+				E3C3ABE82205809A0072D5C2 /* Models */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -157,6 +162,15 @@
 				1DD45C37BCAE579C752101E8 /* Pods_HaventecCommon_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3C3ABE82205809A0072D5C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3C3ABE9220580E50072D5C2 /* AddDeviceResponse.swift */,
+				E3C3ABED22058A0B0072D5C2 /* ActivateDeviceResponse.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +352,8 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				E3C3ABEA220580E50072D5C2 /* AddDeviceResponse.swift in Sources */,
+				E3C3ABEE22058A0B0072D5C2 /* ActivateDeviceResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
