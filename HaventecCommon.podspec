@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HaventecCommon'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of HaventecCommon.'
+  s.version          = '1.0.0'
+  s.summary          = 'SDK providing common functions for interacting with Authenticate & Sanctum APIs.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,10 +18,10 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+'SDK providing common functions for interacting with Authenticate & Sanctum APIs.'
                        DESC
 
-  s.homepage         = 'https://github.com/Clifford Phan/HaventecCommon'
+  s.homepage         = 'https://github.com/Haventec/common-ios-sdk'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Clifford Phan' => 'clifford.phan@haventec.com' }
@@ -31,7 +31,8 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'HaventecCommon/Classes/**/*'
-  
+ 
+  s.swift_version = '4.2' 
   # s.resource_bundles = {
   #   'HaventecCommon' => ['HaventecCommon/Assets/*.png']
   # }
