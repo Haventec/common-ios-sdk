@@ -1,6 +1,5 @@
 # HaventecCommon
 
-[![CI Status](https://img.shields.io/travis/Clifford Phan/HaventecCommon.svg?style=flat)](https://travis-ci.org/Clifford Phan/HaventecCommon)
 [![Version](https://img.shields.io/cocoapods/v/HaventecCommon.svg?style=flat)](https://cocoapods.org/pods/HaventecCommon)
 [![License](https://img.shields.io/cocoapods/l/HaventecCommon.svg?style=flat)](https://cocoapods.org/pods/HaventecCommon)
 [![Platform](https://img.shields.io/cocoapods/p/HaventecCommon.svg?style=flat)](https://cocoapods.org/pods/HaventecCommon)
