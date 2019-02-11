@@ -1,0 +1,33 @@
+//
+//  App.xcconfig
+//  HaventecCommon
+//
+//  Created by Clifford Phan on 8/2/19.
+//  Copyright © 2019 CocoaPods. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_CLIENT_ID = 123456789
+
+
+
+//<?xml version="1.0" encoding="UTF-8"?>
+//2 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+//3 <plist version="1.0">
+//4 <dict>
+//5     <key>applicationUuid</key>
+//6     <string>e4c8380a-20db-4814-91e7-563b35a7381c</string>
+//7     <key>haventecEmail</key>
+//8     <string>clifford.phan@haventec.com</string>
+//9     <key>haventecUsername</key>
+//10     <string>foobar123</string>
+//11     <key>pinCode</key>
+//12     <string>1234</string>
+//13     <key>serverUrl</key>
+//14     <string>https://api.haventec.com/authenticate/v1-2</string>
+//15     <key>apiKey</key>
+//16     <string>d997872d-7b51-4953-b338-5980e7ec128f</string>
+//17 </dict>
+//18 </plist>

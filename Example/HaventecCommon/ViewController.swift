@@ -10,16 +10,16 @@ import UIKit
 import HaventecCommon
 
 class ViewController: UIViewController, NSURLConnectionDataDelegate {
-    let serverUrl: String = "https://api.haventec.com/authenticate/v1-2"
-    
+    var serverUrl: String!
+
     // Add Device Request
-    let applicationUuid: String = "e4c8380a-20db-4814-91e7-563b35a7381c"
-    let apiKey: String = "d997872d-7b51-4953-b338-5980e7ec128f"
-    let haventecUsername: String = "foobar123"
-    let haventecEmail: String = "clifford.phan@haventec.com"
-    
+    var applicationUuid: String!
+    var apiKey: String!
+    var haventecUsername: String!
+    var haventecEmail: String!
+
     // Activate Device Request
-    let pinCode: String = "1234";
+    var pinCode: String!
     
     // Add Device Response
     var activationToken: String!
@@ -28,9 +28,6 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     // Activate Device Response
     var authKey: String!
     var accessToken: AccessToken!
-
-//    private UserDetails userDetails;
-//    private List<DeviceDetails> devices;
     
     // UIKit
     @IBOutlet weak var addDeviceButton: UIButton!
@@ -38,8 +35,22 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     @IBOutlet weak var addDeviceResponse: UILabel!
     @IBOutlet weak var activateDeviceResponse: UILabel!
     
+    private func loadPropertyFile() {
+        guard let fileUrl = Bundle.main.url(forResource: "App", withExtension: "plist") else { return }
+        guard let properties = NSDictionary(contentsOf: fileUrl) as? [String:Any] else { return }
+        
+        serverUrl = properties["serverUrl"] as? String
+        applicationUuid = properties["applicationUuid"] as? String
+        apiKey = properties["apiKey"] as? String
+        haventecUsername = properties["haventecUsername"] as? String
+        haventecEmail = properties["haventecEmail"] as? String
+        pinCode = properties["pinCode"] as? String
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadPropertyFile()
+        
         // Do any additional setup after loading the view, typically from a nib.
         addDeviceResponse.adjustsFontSizeToFitWidth = true
         addDeviceResponse.lineBreakMode = NSLineBreakMode.byWordWrapping

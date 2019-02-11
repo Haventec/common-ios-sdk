@@ -6,22 +6,26 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo and run the HaventecCommon-Example target build on a iOS device in xCode.
 
 ## Requirements
 
+No dependencies are required for this SDK.
+
 ## Installation
 
-HaventecCommon is available through [CocoaPods](https://cocoapods.org). To install
+HaventecCommon is available through [CocoaPods](https://cocoapods.org/pods/HaventecCommon). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'HaventecCommon'
 ```
 
+Afterwards, make sure to update and install the podfile in your working project directory.
+
 ## Author
 
-Clifford Phan, clifford.phan@haventec.com
+Haventec - (https://www.haventec.com/)
 
 ## License
 

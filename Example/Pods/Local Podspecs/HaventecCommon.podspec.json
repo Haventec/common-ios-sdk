@@ -1,9 +1,9 @@
 {
   "name": "HaventecCommon",
-  "version": "0.1.0",
-  "summary": "A short description of HaventecCommon.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Clifford Phan/HaventecCommon",
+  "version": "1.0.0",
+  "summary": "SDK providing common functions for interacting with Authenticate & Sanctum APIs.",
+  "description": "'SDK providing common functions for interacting with Authenticate & Sanctum APIs.'",
+  "homepage": "https://github.com/Haventec/common-ios-sdk",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -13,10 +13,11 @@
   },
   "source": {
     "git": "https://github.com/Clifford Phan/HaventecCommon.git",
-    "tag": "0.1.0"
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "HaventecCommon/Classes/**/*"
+  "source_files": "HaventecCommon/Classes/**/*",
+  "swift_version": "4.2"
 }

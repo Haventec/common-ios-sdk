@@ -1,5 +1,5 @@
 PODS:
-  - HaventecCommon (0.1.0)
+  - HaventecCommon (1.0.0)
 
 DEPENDENCIES:
   - HaventecCommon (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HaventecCommon: 9e764e2a5e4439cad4e229f13de2f1aec2dbd4b4
+  HaventecCommon: 44898d76762594747298b6a1f4a003228a127776
 
 PODFILE CHECKSUM: 33ac72f668edc745b0f11c685a00b9c26a694825
 

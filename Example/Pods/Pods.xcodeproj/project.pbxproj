@@ -403,6 +403,37 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		07E570AECCB8C4CF11DF8B273B229B58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 909D39D34E9C91275B24E61944A3F962 /* HaventecCommon.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HaventecCommon/HaventecCommon-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HaventecCommon/HaventecCommon-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HaventecCommon/HaventecCommon.modulemap";
+				PRODUCT_MODULE_NAME = HaventecCommon;
+				PRODUCT_NAME = HaventecCommon;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		2F4660BB9920B8AABED913D287639756 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 29817A346B0D2EFC52A85D87A6F375A3 /* Pods-HaventecCommon_Tests.debug.xcconfig */;
@@ -504,7 +535,7 @@
 			};
 			name = Release;
 		};
-		7610A23D12FF92C782233EBB5953F260 /* Release */ = {
+		AB2C441F71A84164C8BAC4E0416B904E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 909D39D34E9C91275B24E61944A3F962 /* HaventecCommon.xcconfig */;
 			buildSettings = {
@@ -528,44 +559,13 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		90CDC7992965DDFF3C894C0814184E19 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 909D39D34E9C91275B24E61944A3F962 /* HaventecCommon.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/HaventecCommon/HaventecCommon-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HaventecCommon/HaventecCommon-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HaventecCommon/HaventecCommon.modulemap";
-				PRODUCT_MODULE_NAME = HaventecCommon;
-				PRODUCT_NAME = HaventecCommon;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		AB4D69770D8ACE3A05E80BB3502666F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -730,8 +730,8 @@
 		24260C969B567E1B5FB0D0C8DED3A760 /* Build configuration list for PBXNativeTarget "HaventecCommon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				90CDC7992965DDFF3C894C0814184E19 /* Debug */,
-				7610A23D12FF92C782233EBB5953F260 /* Release */,
+				07E570AECCB8C4CF11DF8B273B229B58 /* Debug */,
+				AB2C441F71A84164C8BAC4E0416B904E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
