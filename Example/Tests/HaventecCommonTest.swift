@@ -35,13 +35,20 @@ class HaventecCommonTest: XCTestCase {
         }
     }
     
+    func testGenerateSalt_Unique() {
+        guard let saltA: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
+        guard let saltB: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
+        
+        XCTAssert(saltA != saltB)
+    }
+    
     func testHashPin() {
         let saltBytes: [UInt8] = try! HaventecCommon.generateSalt()
 
         let hashedPin: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234")
         let range = NSRange(location: 0, length: hashedPin.count)
         let regex = try! NSRegularExpression(pattern: "^[A-Za-z0-9+\\/=]{1,}$")
-        print(hashedPin)
+        
         XCTAssertTrue(regex.firstMatch(in: hashedPin, options: [], range: range) != nil, invalidBase64Format)
     }
     
@@ -56,7 +63,7 @@ class HaventecCommonTest: XCTestCase {
         let hashedPinA: String = HaventecCommon.hashPin(saltBytes: Array(saltBytes), pin: "1234")
         let hashedPinB: String = HaventecCommon.hashPin(saltBytes: Array(saltBytes), pin: "7890")
 
-        if hashedPinA != hashedPinB {
+        if hashedPinA == hashedPinB {
             XCTFail()
         }
     }

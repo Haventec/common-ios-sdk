@@ -69,30 +69,54 @@ public class HaventecCommon {
 //        return shaString
 //    }
     public static func hashPin(saltBytes: [UInt8], pin: String) -> String {
-        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
-        let rawString = String(bytes: saltBytes, encoding: .utf8)!
+        let salt: String = String(bytes: saltBytes, encoding: .utf8)!
+        let result: String = salt + pin
         
-        if let data = rawString.data(using: .utf8) {
-            let value = data as NSData
-            CC_SHA512(value.bytes, CC_LONG(data.count), &digest)
+        if let stringData = result.data(using: .utf8) {
+            let hashPin: String = hexStringFromData(input: digest(input: stringData as NSData))
+            return hashPin.data(using: .utf8)!.base64EncodedString()
+        } else {
+            return ""
         }
         
-        let hashPin = String(bytes: digest, encoding: .utf8)!
-        
-        return hashPin.data(using: .utf8)?.base64EncodedString()
+    }
+//    func sha256() -> String{
+//        if let stringData = self.data(using: String.Encoding.utf8) {
+//            return hexStringFromData(input: digest(input: stringData as NSData))
+//        }
+//        return ""
+//    }
+    
+    private static func digest(input : NSData) -> NSData {
+        let digestLength = Int(CC_SHA256_DIGEST_LENGTH)
+        var hash = [UInt8](repeating: 0, count: digestLength)
+        CC_SHA256(input.bytes, UInt32(input.length), &hash)
+        return NSData(bytes: hash, length: digestLength)
     }
     
-    private static func sha512Base64(instring: String) -> String {
-        let digest = NSMutableData(length: Int(CC_SHA512_DIGEST_LENGTH))!
-        if let data = instring.data(using: String.Encoding.utf8) {
-            
-            let value =  data as NSData
-            let uint8Pointer = UnsafeMutablePointer<UInt8>.allocate(capacity: digest.length)
-            CC_SHA512(value.bytes, CC_LONG(data.count), uint8Pointer)
-            
+    private static func hexStringFromData(input: NSData) -> String {
+        var bytes = [UInt8](repeating: 0, count: input.length)
+        input.getBytes(&bytes, length: input.length)
+        
+        var hexString = ""
+        for byte in bytes {
+            hexString += String(format:"%02x", UInt8(byte))
         }
-        return digest.base64EncodedString(options: NSData.Base64EncodingOptions([]))
+        
+        return hexString
     }
+
+//    private static func sha512Base64(instring: String) -> String {
+//        let digest = NSMutableData(length: Int(CC_SHA512_DIGEST_LENGTH))!
+//        if let data = instring.data(using: String.Encoding.utf8) {
+//
+//            let value =  data as NSData
+//            let uint8Pointer = UnsafeMutablePointer<UInt8>.allocate(capacity: digest.length)
+//            CC_SHA512(value.bytes, CC_LONG(data.count), uint8Pointer)
+//
+//        }
+//        return digest.base64EncodedString(options: NSData.Base64EncodingOptions([]))
+//    }
     
 //    try {
 //    MessageDigest md = MessageDigest.getInstance(HASHING_ALGORITHM);
