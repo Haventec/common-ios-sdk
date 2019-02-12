@@ -24,15 +24,12 @@ class HaventecCommonTest: XCTestCase {
     }
 
     func testGenerateSalt() {
-        if let saltByteArray: [UInt8] = try? HaventecCommon.generateSalt() {
-            let salt = String(bytes: saltByteArray, encoding: .utf8)!
-            let range = NSRange(location: 0, length: salt.count)
-            let regex = try! NSRegularExpression(pattern: "^[A-Za-z0-9+\\/=]{1,}$")
+        guard let saltByteArray: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
+        let salt = String(bytes: saltByteArray, encoding: .utf8)!
+        let range = NSRange(location: 0, length: salt.count)
+        let regex = try! NSRegularExpression(pattern: "^[A-Za-z0-9+\\/=]{1,}$")
 
-            XCTAssertTrue(regex.firstMatch(in: salt, options: [], range: range) != nil, invalidBase64Format)
-        } else {
-            XCTFail(exceptionThrown)
-        }
+        XCTAssertTrue(regex.firstMatch(in: salt, options: [], range: range) != nil, invalidBase64Format)
     }
     
     func testGenerateSalt_Unique() {
@@ -52,19 +49,31 @@ class HaventecCommonTest: XCTestCase {
         XCTAssertTrue(regex.firstMatch(in: hashedPin, options: [], range: range) != nil, invalidBase64Format)
     }
     
-    func testSameSaltWithDifferentPin() {
-        let base64Salt = "azNsWEHCusKhw7RRwr7CosOkw6PCnlzCkW7CvBrDlTtzdsOGTsKFw6vDk8Kow73Dhg8QBsOJDXPCnsKdw7jCoMKGAsOXMcKqH8KNRhvCtRhDw6bDticFAsOBwosEwrzCmxbDrcKpwrY5PTrCoiLDjsO3H3hlwpLChQAVV8Kjw4kIbRDDk8OWwrHDpEbCgsKRw5fCkmfDmnF0NMOcwooXQ8KXw4c3woJsw5pyYTjDvcOrRcKqw5BWw45OHsKlwoLCmSnCnsKGwqlNG146TX/Do3Buw47Dg3cUw5bCgivDlMODw7AZwrjDqzdbw5AcHD7Dk38tUsO1DcOtw4pmPHPDtHVBw4sFFsKsZDMBdsO6djnCg8Kjw7gsMkZSw4vCrU9iPk3DhWUCw597w4fDksKUajXCgsKFeB3DncODQyQgwq/ClsOoc8ORw7Npw5bDicOHSVp6wqw7wq7Cv0c2w7TClX56CcKpwqTChyDDusOdIgHDo1HDisObRxfDhiLDrsOZw5bCr8OZwrHCnywkEsO3WcOuNMKcworDslfDisOZW8KDwpBPE8OEw5/Dh0QTBMK1NMOyw67CnMKLJ0FVdcOvwr8fw4gEwq5UwpBbCU4Kwo/CvsO5AHUpSsKzOMKhw48DPcOHwp3CigUsw4ErDETCnh0ZZwopZMKGE0JHwo5KV8OoWTMPCWnCn8O1w5TDvmHCtSDCk8OZwrkuwoDCjcOEwqzDpMKRwqI2w7nDp1owAsO1Ri96EcOCw5HDqQDDk2nCoMO6LMOgW13DsMK4CkfDmCXDtsO9T1HDjkARAGsewrs6w6jCrcO4Y8KuX1lIworDmMKmw69VasOYw7Aaw65Xw7TCsMOrw4PCtMOvwoHCpsOTwo3DtEYCXVdJwoXDhcKCVh4ow5dPacKIMsOwdid8NcOCw5/CgDhzZsOGV8OXwrnDrsOiw5x3wpTCllzDiFPDhSbDiMK9ScOuNcKbRUd6wrVAw4zCmcKdcBHChHl3w5YJw6JGJsKCP09BO1MJ"
+    func testHashPin_UniqueHashPins() {
+        let saltBytesA: [UInt8] = try! HaventecCommon.generateSalt()
+        let saltBytesB: [UInt8] = try! HaventecCommon.generateSalt()
         
-        guard let saltBytes = base64Salt.data(using: .utf8) else {
-            XCTFail()
-            return
-        }
+        let hashedPinA: String = HaventecCommon.hashPin(saltBytes: saltBytesA, pin: "1234")
+        let hashedPinB: String = HaventecCommon.hashPin(saltBytes: saltBytesB, pin: "1234")
         
-        let hashedPinA: String = HaventecCommon.hashPin(saltBytes: Array(saltBytes), pin: "1234")
-        let hashedPinB: String = HaventecCommon.hashPin(saltBytes: Array(saltBytes), pin: "7890")
-
-        if hashedPinA == hashedPinB {
-            XCTFail()
-        }
+        XCTAssert(hashedPinA != hashedPinB)
+    }
+    
+    func testHashPin_SamePinAndSalt() {
+        let saltBytes: [UInt8] = try! HaventecCommon.generateSalt()
+        
+        let hashedPinA: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234")
+        let hashedPinB: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234")
+        
+        XCTAssert(hashedPinA == hashedPinB)
+    }
+    
+    func testHashPin_DifferentPinSameSalt() {
+        let saltBytes: [UInt8] = try! HaventecCommon.generateSalt()
+        
+        let hashedPinA: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234")
+        let hashedPinB: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "3412")
+        
+        XCTAssert(hashedPinA != hashedPinB)
     }
 }
