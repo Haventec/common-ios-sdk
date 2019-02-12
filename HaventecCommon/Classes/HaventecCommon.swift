@@ -4,32 +4,26 @@ import CommonCrypto
 public class HaventecCommon {
     static let saltByteSize: Int = 128
     
-    enum HaventecCommonException: Error {
-        case generateSalt(String)
-        case hashPin(String)
-    }
-    
-    private static func generateBytes(length : Int) throws -> NSData? {
+    private static func generateBytes(length : Int) -> NSData? {
         var bytes = [Int32](repeating: Int32(0), count: length)
         let statusCode = CCRandomGenerateBytes(&bytes, bytes.count)
+        
         if statusCode != CCRNGStatus(kCCSuccess) {
             return nil
+        } else {
+            return NSData(bytes: bytes, length: bytes.count)
         }
-        return NSData(bytes: bytes, length: bytes.count)
     }
     
-    public static func generateSalt() throws -> [UInt8] {
+    public static func generateSalt() -> [UInt8] {
         var saltArray: [Int32] = []
         
         for _ in 0..<saltByteSize {
             var intOut: Int32 = 0;
             
-            if let dataBytes = try? generateBytes(length: 4), let data = dataBytes {
-                data.getBytes(&intOut, length: MemoryLayout<Int32>.size)
-                saltArray.append(intOut);
-            } else {
-                throw HaventecCommonException.generateSalt("Error generating random bytes")
-            }
+            guard let dataBytes = generateBytes(length: 4) else { preconditionFailure("Failure in generating bytes") }
+            dataBytes.getBytes(&intOut, length: MemoryLayout<Int32>.size)
+            saltArray.append(intOut);
         }
         
         var saltString = "";
@@ -45,13 +39,9 @@ public class HaventecCommon {
             saltString += word;
         }
         
-        guard let rawSaltBytes = saltString.data(using: .utf8) else { throw HaventecCommonException.generateSalt("Error encoding the raw string into bytes") }
-        
-        if let encodedSaltBytes = rawSaltBytes.base64EncodedString().data(using: .utf8) {
-            return Array(encodedSaltBytes)
-        } else {
-            throw HaventecCommonException.generateSalt("Error encoding the generated salt with given charset")
-        }
+        guard let rawSaltBytes = saltString.data(using: .utf8) else { preconditionFailure("Failure in encoding the raw string into bytes") }
+        guard let encodedSaltBytes = rawSaltBytes.base64EncodedString().data(using: .utf8) else { preconditionFailure("Failure in encoding the generated salt") }
+        return Array(encodedSaltBytes)
     }
     
     public static func hashPin(saltBytes: [UInt8], pin: String) -> String {
