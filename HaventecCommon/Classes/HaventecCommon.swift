@@ -4,7 +4,7 @@ import CommonCrypto
 public class HaventecCommon {
     static let saltByteSize: Int = 128
     
-    enum HaventecError: Error {
+    enum HaventecCommonException: Error {
         case generateSalt(String)
         case hashPin(String)
     }
@@ -28,7 +28,7 @@ public class HaventecCommon {
                 data.getBytes(&intOut, length: MemoryLayout<Int32>.size)
                 saltArray.append(intOut);
             } else {
-                throw HaventecError.generateSalt("Error generating random bytes")
+                throw HaventecCommonException.generateSalt("Error generating random bytes")
             }
         }
         
@@ -45,29 +45,15 @@ public class HaventecCommon {
             saltString += word;
         }
         
-        guard let rawSaltBytes = saltString.data(using: .utf8) else { throw HaventecError.generateSalt("Error encoding the raw string into bytes") }
+        guard let rawSaltBytes = saltString.data(using: .utf8) else { throw HaventecCommonException.generateSalt("Error encoding the raw string into bytes") }
         
         if let encodedSaltBytes = rawSaltBytes.base64EncodedString().data(using: .utf8) {
             return Array(encodedSaltBytes)
         } else {
-            throw HaventecError.generateSalt("Error encoding the generated salt with given charset")
+            throw HaventecCommonException.generateSalt("Error encoding the generated salt with given charset")
         }
     }
     
-//    public static func hashPin(saltBytes: [UInt8], pin: String) -> String {
-//        let salt: String = String(bytes: saltBytes, encoding: .utf8)!
-//        var basePin: String = ""
-//
-//        if let dataPin = salt.data(using: .utf8) {
-//            basePin = dataPin.base64EncodedString()
-//        }
-//
-//        let saltString: String = salt + basePin;
-//
-//        let shaString: String = sha512Base64(instring: saltString)
-//
-//        return shaString
-//    }
     public static func hashPin(saltBytes: [UInt8], pin: String) -> String {
         let salt: String = String(bytes: saltBytes, encoding: .utf8)!
         let result: String = salt + pin
@@ -78,14 +64,7 @@ public class HaventecCommon {
         } else {
             return ""
         }
-        
     }
-//    func sha256() -> String{
-//        if let stringData = self.data(using: String.Encoding.utf8) {
-//            return hexStringFromData(input: digest(input: stringData as NSData))
-//        }
-//        return ""
-//    }
     
     private static func digest(input : NSData) -> NSData {
         let digestLength = Int(CC_SHA256_DIGEST_LENGTH)
@@ -105,27 +84,4 @@ public class HaventecCommon {
         
         return hexString
     }
-
-//    private static func sha512Base64(instring: String) -> String {
-//        let digest = NSMutableData(length: Int(CC_SHA512_DIGEST_LENGTH))!
-//        if let data = instring.data(using: String.Encoding.utf8) {
-//
-//            let value =  data as NSData
-//            let uint8Pointer = UnsafeMutablePointer<UInt8>.allocate(capacity: digest.length)
-//            CC_SHA512(value.bytes, CC_LONG(data.count), uint8Pointer)
-//
-//        }
-//        return digest.base64EncodedString(options: NSData.Base64EncodingOptions([]))
-//    }
-    
-//    try {
-//    MessageDigest md = MessageDigest.getInstance(HASHING_ALGORITHM);
-//    md.update(salt);
-//    byte[] bytes = md.digest(text.getBytes("UTF-8"));
-//
-//    return toBase64(bytes);
-//    }
-//    catch (NoSuchAlgorithmException | UnsupportedEncodingException e){
-//    throw new HaventecCommonException(CommonError.HASHING_ERROR, e);
-//    }
 }
