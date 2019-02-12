@@ -41,7 +41,7 @@ class HaventecCommonTest: XCTestCase {
         let hashedPin: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234")
         let range = NSRange(location: 0, length: hashedPin.count)
         let regex = try! NSRegularExpression(pattern: "^[A-Za-z0-9+\\/=]{1,}$")
-
+        print(hashedPin)
         XCTAssertTrue(regex.firstMatch(in: hashedPin, options: [], range: range) != nil, invalidBase64Format)
     }
     
