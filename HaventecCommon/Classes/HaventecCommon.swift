@@ -1,9 +1,14 @@
 import Foundation
 import CommonCrypto
 
+
+/// Non-instantial class providing common functions for the Authenticate & Sanctum API
 public class HaventecCommon {
     static let saltByteSize: Int = 128
     
+    /// Generates a random salt string that is encoded in base64
+    ///
+    /// - Returns: Byte array representing a Base64 salted string
     public static func generateSalt() -> [UInt8] {
         var saltArray: [Int32] = []
         
@@ -42,17 +47,23 @@ public class HaventecCommon {
         return Array(encodedSaltBytes)
     }
     
+    /// Generates a hashed PIN that's essential to using Authenticate & Sanctum
+    ///
+    /// - Parameters:
+    ///   - saltBytes: Byte array representing a Base64 salted string
+    ///   - pin: String representing the user's PIN
+    /// - Returns: Hashed PIN of the correct format required for Authenticate & Sanctum
     public static func hashPin(saltBytes: [UInt8], pin: String) -> String? {
         let salt: String = String(bytes: saltBytes, encoding: .utf8)!
         guard let data = (salt + pin).data(using: .utf8) else { return nil }
         
         /// Get Digest
         let dataNS = data as NSData
-        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
+        var digest = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
         
-        CC_SHA512(dataNS.bytes, UInt32(dataNS.length), &digest)
+        CC_SHA256(dataNS.bytes, UInt32(dataNS.length), &digest)
         
-        let digestWrapper = NSData(bytes: digest, length: Int(CC_SHA512_DIGEST_LENGTH))
+        let digestWrapper = NSData(bytes: digest, length: Int(CC_SHA256_DIGEST_LENGTH))
         
         /// Encode digest to hex
         var hexDigest = [UInt8](repeating: 0, count: digestWrapper.length)
