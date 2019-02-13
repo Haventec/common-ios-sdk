@@ -23,9 +23,15 @@ class HaventecCommonTest: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testGenerateSalt() {
+    
+    func testGenerateSalt_ProperLength() {
         let saltByteArray: [UInt8] = HaventecCommon.generateSalt()
+        XCTAssertEqual(saltByteArray.count, 128)
+    }
+
+    func testGenerateSalt_Base64Encoded() {
+        let saltByteArray: [UInt8] = HaventecCommon.generateSalt()
+        
         let salt = Data(saltByteArray).base64EncodedString()
         
         let range = NSRange(location: 0, length: salt.count)
@@ -34,16 +40,23 @@ class HaventecCommonTest: XCTestCase {
         XCTAssertTrue(regex.firstMatch(in: salt, options: [], range: range) != nil, invalidBase64Format)
     }
     
-    func testGenerateSalt_Unique() {
+    func testGenerateSalt_UniqueSalts() {
         let saltA: [UInt8] = HaventecCommon.generateSalt()
         let saltB: [UInt8] = HaventecCommon.generateSalt()
         
         XCTAssert(saltA != saltB)
     }
     
-    func testHashPin() {
+    func testHashPin_ProperLength() {
         let saltBytes: [UInt8] = HaventecCommon.generateSalt()
-
+        
+        guard let hashedPin: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(emptyHashPin); return }
+        XCTAssertEqual(hashedPin.count, 88)
+    }
+    
+    func testHashPin_Base64Encoded() {
+        let saltBytes: [UInt8] = HaventecCommon.generateSalt()
+        
         guard let hashedPin: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(emptyHashPin); return }
         let range = NSRange(location: 0, length: hashedPin.count)
         let regex = try! NSRegularExpression(pattern: "^[A-Za-z0-9+\\/=]{1,}$")

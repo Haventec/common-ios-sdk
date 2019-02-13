@@ -6,7 +6,7 @@ import CommonCrypto
 public class HaventecCommon {
     static let saltByteSize: Int = 128
     
-    /// Generates a random salt string
+    /// Generates a random byte array representing the salt
     ///
     /// - Returns: Byte array representing a Base64 salted string
     public static func generateSalt() -> [UInt8] {
@@ -19,6 +19,8 @@ public class HaventecCommon {
         
         if result == errSecSuccess {
             var correctResult: [UInt8] = Array(keyData)
+            
+            /// Modify all bytes to be in the correct range for utf8 encoding
             for i in 0..<correctResult.count {
                 correctResult[i] = correctResult[i] >> 1
             }
@@ -27,42 +29,6 @@ public class HaventecCommon {
         } else {
             preconditionFailure("Failure in generating random bytes")
         }
-        
-//        var saltArray: [Int32] = []
-//
-//        /// Generate random bytes
-//        for _ in 0..<saltByteSize {
-//            var intOut: Int32 = 0;
-//
-//            var bytes = [Int32](repeating: Int32(0), count: 4)
-//            let statusCode = CCRandomGenerateBytes(&bytes, bytes.count)
-//
-//            if statusCode == CCRNGStatus(kCCSuccess) {
-//                let data = NSData(bytes: bytes, length: bytes.count)
-//                data.getBytes(&intOut, length: MemoryLayout<Int32>.size)
-//                saltArray.append(intOut);
-//            } else {
-//                preconditionFailure("Failure in generating random bytes")
-//            }
-//        }
-//
-//        var saltString = "";
-//
-//        for i in 0..<saltArray.count {
-//            let utf16 = [
-//                UInt16((saltArray[i] >> 24) & 0xFF),
-//                UInt16((saltArray[i] >> 16) & 0xFF),
-//                UInt16((saltArray[i] >> 8) & 0xFF),
-//                UInt16((saltArray[i] & 0xFF)) ]
-//            let word: String = String(utf16CodeUnits: utf16, count: 4)
-//
-//            saltString += word;
-//        }
-//
-//        /// Encode salt to base64
-//        guard let rawSaltBytes = saltString.data(using: .utf8) else { preconditionFailure("Failure in encoding the raw string into bytes") }
-//        guard let encodedSaltBytes = rawSaltBytes.base64EncodedString().data(using: .utf8) else { preconditionFailure("Failure in encoding the generated salt") }
-//        return Array(encodedSaltBytes)
     }
     
     /// Generates a hashed PIN that's essential to using Authenticate & Sanctum
@@ -77,23 +43,11 @@ public class HaventecCommon {
         
         /// Get Digest
         let dataNS = data as NSData
-        var digest = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
+        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
         
-        CC_SHA256(dataNS.bytes, UInt32(dataNS.length), &digest)
+        CC_SHA512(dataNS.bytes, UInt32(dataNS.length), &digest)
         
-        let digestWrapper = NSData(bytes: digest, length: Int(CC_SHA256_DIGEST_LENGTH))
-        
-        /// Encode digest to hex
-        var hexDigest = [UInt8](repeating: 0, count: digestWrapper.length)
-        digestWrapper.getBytes(&hexDigest, length: digestWrapper.length)
-        
-        var hexString = ""
-        for byte in hexDigest {
-            hexString += String(format:"%02x", UInt8(byte))
-        }
-        
-        // Encode to base 64 string
-        guard let hashPin = hexString.data(using: .utf8) else { return nil }
-        return hashPin.base64EncodedString()
+        /// Return base 64 encoded digest
+        return Data(digest).base64EncodedString()
     }
 }
