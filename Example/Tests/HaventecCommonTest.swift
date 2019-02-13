@@ -26,7 +26,8 @@ class HaventecCommonTest: XCTestCase {
 
     func testGenerateSalt() {
         let saltByteArray: [UInt8] = HaventecCommon.generateSalt()
-        let salt = String(bytes: saltByteArray, encoding: .utf8)!
+        let salt = Data(saltByteArray).base64EncodedString()
+        
         let range = NSRange(location: 0, length: salt.count)
         let regex = try! NSRegularExpression(pattern: "^[A-Za-z0-9+\\/=]{1,}$")
 
