@@ -115,8 +115,7 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     @IBAction func activateDevice() {
         let saltBytes: [UInt8] = HaventecCommon.generateSalt()
         guard let hashedPin: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: pinCode) else { return }
-        print(hashedPin)
-        print(hashedPin.count)
+        
         let url = URL(string: serverUrl + "/authentication/activate/device")!
 
         let jsonString: String = "{"

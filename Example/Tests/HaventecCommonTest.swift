@@ -64,7 +64,7 @@ class HaventecCommonTest: XCTestCase {
         XCTAssertTrue(regex.firstMatch(in: hashedPin, options: [], range: range) != nil, invalidBase64Format)
     }
     
-    func testHashPin_UniqueHashPins() {
+    func testHashPin_SamePinDifferentSalt() {
         let saltBytesA: [UInt8] = HaventecCommon.generateSalt()
         let saltBytesB: [UInt8] = HaventecCommon.generateSalt()
         
@@ -74,7 +74,7 @@ class HaventecCommonTest: XCTestCase {
         XCTAssert(hashedPinA != hashedPinB)
     }
     
-    func testHashPin_SamePinAndSalt() {
+    func testHashPin_SamePinSameSalt() {
         let saltBytes: [UInt8] = try! HaventecCommon.generateSalt()
         
         guard let hashedPinA: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(emptyHashPin); return }
