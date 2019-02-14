@@ -9,7 +9,7 @@ import Foundation
 import CommonCrypto
 
 /// Helper class for hashing related functions for the HaventecCommon module
-public class HashingHelper {
+class HashingHelper {
     private static let saltByteSize: Int = 128
     
     /// Generates a random byte array representing the salt

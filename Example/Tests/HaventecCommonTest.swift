@@ -64,6 +64,16 @@ class HaventecCommonTest: XCTestCase {
         XCTAssertTrue(regex.firstMatch(in: hashedPin, options: [], range: range) != nil, invalidBase64Format)
     }
     
+    func testHashPin_Base64Decoded() {
+        let saltBytes: [UInt8] = HaventecCommon.generateSalt()
+        
+        guard let hashedPin: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(emptyHashPin); return }
+        
+        guard let decodedData = Data(base64Encoded: hashedPin) else { XCTFail(invalidBase64Format); return }
+        guard let decodedString = String(data: decodedData, encoding: .utf8) else { return; }
+        XCTFail("Decoded base64 byte array shouldn't be able to decode to a utf8 string due to SHA512 digest format")
+    }
+    
     func testHashPin_SamePinDifferentSalt() {
         let saltBytesA: [UInt8] = HaventecCommon.generateSalt()
         let saltBytesB: [UInt8] = HaventecCommon.generateSalt()

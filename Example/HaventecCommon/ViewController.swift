@@ -32,7 +32,14 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     // UIKit
     @IBOutlet weak var addDeviceButton: UIButton!
     @IBOutlet weak var activateDeviceButton: UIButton!
-    @IBOutlet weak var addDeviceResponse: UILabel!
+    
+    @IBOutlet weak var addDeviceStatus: UILabel!
+    @IBOutlet weak var addDeviceMessage: UILabel!
+    @IBOutlet weak var addDeviceCode: UILabel!
+    @IBOutlet weak var addDeviceActivationToken: UILabel!
+    @IBOutlet weak var addDeviceDeviceUuid: UILabel!
+    
+//    @IBOutlet weak var addDeviceResponse: UILabel!
     @IBOutlet weak var activateDeviceResponse: UILabel!
     
     private func loadPropertyFile() {
@@ -49,12 +56,13 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadPropertyFile()
         
         // Do any additional setup after loading the view, typically from a nib.
-        addDeviceResponse.adjustsFontSizeToFitWidth = true
-        addDeviceResponse.lineBreakMode = NSLineBreakMode.byWordWrapping
-        addDeviceResponse.numberOfLines = 0
+//        addDeviceResponse.adjustsFontSizeToFitWidth = true
+//        addDeviceResponse.lineBreakMode = NSLineBreakMode.byWordWrapping
+//        addDeviceResponse.numberOfLines = 0
         
         activateDeviceResponse.adjustsFontSizeToFitWidth = true
         activateDeviceResponse.lineBreakMode = NSLineBreakMode.byWordWrapping
