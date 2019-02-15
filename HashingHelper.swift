@@ -12,7 +12,6 @@ import CommonCrypto
 class HashingHelper {
     private static let saltByteSize: Int = 128
     
-    
     /// The exceptions that can be thrown from the HaventecCommon Module
     ///
     /// - generateSalt: Internal error that occurs in memory when random bytes can't be stored in a buffer
@@ -20,6 +19,12 @@ class HashingHelper {
     enum HaventecCommonException: Error {
         case generateSalt(String)
         case hashPin(String)
+    }
+    
+    enum CommonErrorCodes: String {
+        case randomByteFailure = "Failure in generating random bytes"
+        case incorrectSaltLength = "Failure in decoding the salt byte array due to incorrect length"
+        case nonUtf8EncodingFormat = "Failure in decoding the salt byte array due to incorrect range of byte values for decoding to a utf8 string"
     }
     
     /// Generates a random byte array representing the salt
@@ -42,7 +47,7 @@ class HashingHelper {
             
             return correctResult
         } else {
-            throw HaventecCommonException.generateSalt("Failure in generating random bytes")
+            throw HaventecCommonException.generateSalt(CommonErrorCodes.randomByteFailure.rawValue)
         }
     }
     
@@ -55,10 +60,10 @@ class HashingHelper {
     public static func hashPin(saltBytes: [UInt8], pin: String) throws -> String? {
         /// Validate the salt byte array
         if (saltBytes.count != saltByteSize) {
-            throw HaventecCommonException.hashPin("Failure in decoding the salt byte array due to incorrect length")
+            throw HaventecCommonException.hashPin(CommonErrorCodes.incorrectSaltLength.rawValue)
         }
         if (!saltBytes.allSatisfy({0 <= $0 && $0 <= 127})) {
-            throw HaventecCommonException.hashPin("Failure in decoding the salt byte array due to incorrect range of byte values for decoding to a utf8 string")
+            throw HaventecCommonException.hashPin(CommonErrorCodes.nonUtf8EncodingFormat.rawValue)
         }
         
         let salt: String = String(bytes: saltBytes, encoding: .utf8)!
