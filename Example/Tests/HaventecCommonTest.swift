@@ -25,12 +25,12 @@ class HaventecCommonTest: XCTestCase {
     }
     
     func testGenerateSalt_ProperLength() {
-        let saltByteArray: [UInt8] = HaventecCommon.generateSalt()
+        guard let saltByteArray: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
         XCTAssertEqual(saltByteArray.count, 128)
     }
 
     func testGenerateSalt_Base64Encoded() {
-        let saltByteArray: [UInt8] = HaventecCommon.generateSalt()
+        guard let saltByteArray: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
         
         let salt = Data(saltByteArray).base64EncodedString()
         
@@ -41,23 +41,26 @@ class HaventecCommonTest: XCTestCase {
     }
     
     func testGenerateSalt_UniqueSalts() {
-        let saltA: [UInt8] = HaventecCommon.generateSalt()
-        let saltB: [UInt8] = HaventecCommon.generateSalt()
+        guard let saltA: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
+        guard let saltB: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
         
         XCTAssert(saltA != saltB)
     }
     
     func testHashPin_ProperLength() {
-        let saltBytes: [UInt8] = HaventecCommon.generateSalt()
+        guard let saltBytes: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
         
-        guard let hashedPin: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(emptyHashPin); return }
+        guard let hashedPinOptional = try? HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(exceptionThrown); return }
+        guard let hashedPin: String = hashedPinOptional else { XCTFail(emptyHashPin); return }
         XCTAssertEqual(hashedPin.count, 88)
     }
     
     func testHashPin_Base64Encoded() {
-        let saltBytes: [UInt8] = HaventecCommon.generateSalt()
+        guard let saltBytes: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
         
-        guard let hashedPin: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(emptyHashPin); return }
+        guard let hashedPinOptional = try? HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(exceptionThrown); return }
+        guard let hashedPin: String = hashedPinOptional else { XCTFail(emptyHashPin); return }
+        
         let range = NSRange(location: 0, length: hashedPin.count)
         let regex = try! NSRegularExpression(pattern: "^[A-Za-z0-9+\\/=]{1,}$")
         
@@ -65,21 +68,31 @@ class HaventecCommonTest: XCTestCase {
     }
     
     func testHashPin_Base64Decoded() {
-        let saltBytes: [UInt8] = HaventecCommon.generateSalt()
+        guard let saltBytes: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
         
-        guard let hashedPin: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(emptyHashPin); return }
+        guard let hashedPinOptional = try? HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(exceptionThrown); return }
+        guard let hashedPin: String = hashedPinOptional else { XCTFail(emptyHashPin); return }
         
         guard let decodedData = Data(base64Encoded: hashedPin) else { XCTFail(invalidBase64Format); return }
-        guard let decodedString = String(data: decodedData, encoding: .utf8) else { return; }
-        XCTFail("Decoded base64 byte array shouldn't be able to decode to a utf8 string due to SHA512 digest format")
+        guard String(data: decodedData, encoding: .utf8) != nil else { return; }
+        XCTFail("Decoded base64 byte array shouldn't be able to decode to a utf8 string")
+    }
+    
+    func testHashPin_IncorrectBase64Decoded() {
+        let hashedPin: String = "%$^&*"
+        
+        guard Data(base64Encoded: hashedPin) != nil else { return }
+        XCTFail(invalidBase64Format);
     }
     
     func testHashPin_SamePinDifferentSalt() {
-        let saltBytesA: [UInt8] = HaventecCommon.generateSalt()
-        let saltBytesB: [UInt8] = HaventecCommon.generateSalt()
+        guard let saltBytesA: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
+        guard let saltBytesB: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
         
-        guard let hashedPinA: String = HaventecCommon.hashPin(saltBytes: saltBytesA, pin: "1234") else { XCTFail(emptyHashPin); return }
-        guard let hashedPinB: String = HaventecCommon.hashPin(saltBytes: saltBytesB, pin: "1234") else { XCTFail(emptyHashPin); return }
+        guard let hashedPinAOptional = try? HaventecCommon.hashPin(saltBytes: saltBytesA, pin: "1234") else { XCTFail(exceptionThrown); return }
+        guard let hashedPinA: String = hashedPinAOptional else { XCTFail(emptyHashPin); return }
+        guard let hashedPinBOptional = try? HaventecCommon.hashPin(saltBytes: saltBytesB, pin: "1234") else { XCTFail(exceptionThrown); return }
+        guard let hashedPinB: String = hashedPinBOptional else { XCTFail(emptyHashPin); return }
         
         XCTAssert(hashedPinA != hashedPinB)
     }
@@ -87,8 +100,10 @@ class HaventecCommonTest: XCTestCase {
     func testHashPin_SamePinSameSalt() {
         let saltBytes: [UInt8] = try! HaventecCommon.generateSalt()
         
-        guard let hashedPinA: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(emptyHashPin); return }
-        guard let hashedPinB: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(emptyHashPin); return }
+        guard let hashedPinAOptional = try? HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(exceptionThrown); return }
+        guard let hashedPinA: String = hashedPinAOptional else { XCTFail(emptyHashPin); return }
+        guard let hashedPinBOptional = try? HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(exceptionThrown); return }
+        guard let hashedPinB: String = hashedPinBOptional else { XCTFail(emptyHashPin); return }
         
         XCTAssert(hashedPinA == hashedPinB)
     }
@@ -96,8 +111,10 @@ class HaventecCommonTest: XCTestCase {
     func testHashPin_DifferentPinSameSalt() {
         let saltBytes: [UInt8] = try! HaventecCommon.generateSalt()
         
-        guard let hashedPinA: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(emptyHashPin); return }
-        guard let hashedPinB: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: "3412") else { XCTFail(emptyHashPin); return }
+        guard let hashedPinAOptional = try? HaventecCommon.hashPin(saltBytes: saltBytes, pin: "1234") else { XCTFail(exceptionThrown); return }
+        guard let hashedPinA: String = hashedPinAOptional else { XCTFail(emptyHashPin); return }
+        guard let hashedPinBOptional = try? HaventecCommon.hashPin(saltBytes: saltBytes, pin: "3412") else { XCTFail(exceptionThrown); return }
+        guard let hashedPinB: String = hashedPinBOptional else { XCTFail(emptyHashPin); return }
         
         XCTAssert(hashedPinA != hashedPinB)
     }

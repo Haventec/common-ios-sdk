@@ -12,10 +12,20 @@ import CommonCrypto
 class HashingHelper {
     private static let saltByteSize: Int = 128
     
+    
+    /// The exceptions that can be thrown from the HaventecCommon Module
+    ///
+    /// - generateSalt: Internal error that occurs in memory when random bytes can't be stored in a buffer
+    /// - hashPin: Errors relating to hashing the salt and the pin mostly regarding the salt byte array
+    enum HaventecCommonException: Error {
+        case generateSalt(String)
+        case hashPin(String)
+    }
+    
     /// Generates a random byte array representing the salt
     ///
     /// - Returns: Byte array representing a Base64 salted string
-    public static func generateSalt() -> [UInt8] {
+    public static func generateSalt() throws -> [UInt8] {
         /// New Salt of size 128 bytes
         var keyData = Data(count: saltByteSize)
         let result = keyData.withUnsafeMutableBytes {
@@ -32,7 +42,7 @@ class HashingHelper {
             
             return correctResult
         } else {
-            preconditionFailure("Failure in generating random bytes")
+            throw HaventecCommonException.generateSalt("Failure in generating random bytes")
         }
     }
     
@@ -42,13 +52,13 @@ class HashingHelper {
     ///   - saltBytes: Byte array representing a Base64 salted string
     ///   - pin: String representing the user's PIN
     /// - Returns: Hashed PIN of the correct format required for Authenticate & Sanctum
-    public static func hashPin(saltBytes: [UInt8], pin: String) -> String? {
+    public static func hashPin(saltBytes: [UInt8], pin: String) throws -> String? {
         /// Validate the salt byte array
         if (saltBytes.count != saltByteSize) {
-            preconditionFailure("Failure in decoding the salt byte array due to incorrect length")
+            throw HaventecCommonException.hashPin("Failure in decoding the salt byte array due to incorrect length")
         }
         if (!saltBytes.allSatisfy({0 <= $0 && $0 <= 127})) {
-            preconditionFailure("Failure in decoding the salt byte array due to incorrect range of byte values for decoding to a utf8 string")
+            throw HaventecCommonException.hashPin("Failure in decoding the salt byte array due to incorrect range of byte values for decoding to a utf8 string")
         }
         
         let salt: String = String(bytes: saltBytes, encoding: .utf8)!

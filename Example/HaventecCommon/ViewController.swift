@@ -39,7 +39,7 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     @IBOutlet weak var addDeviceActivationToken: UILabel!
     @IBOutlet weak var addDeviceDeviceUuid: UILabel!
     
-//    @IBOutlet weak var addDeviceResponse: UILabel!
+    @IBOutlet weak var addDeviceResponse: UILabel!
     @IBOutlet weak var activateDeviceResponse: UILabel!
     
     private func loadPropertyFile() {
@@ -58,7 +58,7 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         super.viewDidLoad()
         
         loadPropertyFile()
-        
+//        addDevice
         // Do any additional setup after loading the view, typically from a nib.
 //        addDeviceResponse.adjustsFontSizeToFitWidth = true
 //        addDeviceResponse.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -121,8 +121,9 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     }
     
     @IBAction func activateDevice() {
-        let saltBytes: [UInt8] = HaventecCommon.generateSalt()
-        guard let hashedPin: String = HaventecCommon.hashPin(saltBytes: saltBytes, pin: pinCode) else { return }
+        guard let saltBytes: [UInt8] = try? HaventecCommon.generateSalt() else { return }
+        guard let hashedPinOptional = try? HaventecCommon.hashPin(saltBytes: saltBytes, pin: pinCode) else { return }
+        guard let hashedPin: String = hashedPinOptional else { return }
         
         let url = URL(string: serverUrl + "/authentication/activate/device")!
 

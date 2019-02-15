@@ -44,8 +44,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMa-3h-GXN">
-                                <rect key="frame" x="38" y="89" width="298" height="148"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3K-mE-faH">
+                                <rect key="frame" x="93" y="89" width="188" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -58,7 +58,6 @@
                         <outlet property="activateDeviceButton" destination="mnS-eq-Yuz" id="mtY-TK-NN3"/>
                         <outlet property="activateDeviceResponse" destination="Xex-Yo-x4U" id="4Sv-yu-u3L"/>
                         <outlet property="addDeviceButton" destination="Qoy-Tj-QCd" id="icD-Wx-MPR"/>
-                        <outlet property="addDeviceResponse" destination="rMa-3h-GXN" id="CBN-a2-NOo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
