@@ -1,28 +1,36 @@
 # HaventecCommon
 
-[![CI Status](https://img.shields.io/travis/Clifford Phan/HaventecCommon.svg?style=flat)](https://travis-ci.org/Clifford Phan/HaventecCommon)
 [![Version](https://img.shields.io/cocoapods/v/HaventecCommon.svg?style=flat)](https://cocoapods.org/pods/HaventecCommon)
 [![License](https://img.shields.io/cocoapods/l/HaventecCommon.svg?style=flat)](https://cocoapods.org/pods/HaventecCommon)
 [![Platform](https://img.shields.io/cocoapods/p/HaventecCommon.svg?style=flat)](https://cocoapods.org/pods/HaventecCommon)
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, you need to perform the following:
+
+1. Clone the repo
+2. Update the app configuration file in "/Example/HaventecCommon/App.example.plist" with appropriate values
+3. Rename "/Example/HaventecCommon/App.example.plist" to "/Example/HaventecCommon/App.plist" for the app target build to use that config.
+4. Finally, run the HaventecCommon-Example target build on a iOS device in xCode.
 
 ## Requirements
 
+No dependencies are required for this SDK.
+
 ## Installation
 
-HaventecCommon is available through [CocoaPods](https://cocoapods.org). To install
+HaventecCommon is available through [CocoaPods](https://cocoapods.org/pods/HaventecCommon). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'HaventecCommon'
 ```
 
+Afterwards, make sure to update and install the podfile in your working project directory.
+
 ## Author
 
-Clifford Phan, clifford.phan@haventec.com
+Haventec - (https://www.haventec.com/)
 
 ## License
 

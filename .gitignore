@@ -1,6 +1,9 @@
 # OS X
 .DS_Store
 
+# Config
+/Example/HaventecCommon/App.plist
+
 # Xcode
 build/
 *.pbxuser

@@ -12,9 +12,14 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		936EADF3F66A59EF4CDE154B /* Pods_HaventecCommon_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94467B131991DD93546BB5C5 /* Pods_HaventecCommon_Example.framework */; };
 		9D82149C63717604042FABB0 /* Pods_HaventecCommon_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD45C37BCAE579C752101E8 /* Pods_HaventecCommon_Tests.framework */; };
+		E34A2756221672DE00FB5DB4 /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34A2755221672DE00FB5DB4 /* ResponseStatus.swift */; };
+		E3A63B92220D2C0C0053B692 /* App.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A63B91220D2C0C0053B692 /* App.plist */; };
+		E3A63B95221113880053B692 /* App.example.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A63B94221113880053B692 /* App.example.plist */; };
+		E3C3ABE722015A640072D5C2 /* HaventecCommonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */; };
+		E3C3ABEA220580E50072D5C2 /* AddDeviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE9220580E50072D5C2 /* AddDeviceResponse.swift */; };
+		E3C3ABEE22058A0B0072D5C2 /* ActivateDeviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABED22058A0B0072D5C2 /* ActivateDeviceResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,12 +46,17 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* HaventecCommon_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaventecCommon_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7A4C3905903F27C7E014894D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		913341843CE1BA3DA37E12C2 /* Pods-HaventecCommon_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaventecCommon_Tests.debug.xcconfig"; path = "Target Support Files/Pods-HaventecCommon_Tests/Pods-HaventecCommon_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		94467B131991DD93546BB5C5 /* Pods_HaventecCommon_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaventecCommon_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		947369620D6409C6CAF0B23A /* Pods-HaventecCommon_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaventecCommon_Example.debug.xcconfig"; path = "Target Support Files/Pods-HaventecCommon_Example/Pods-HaventecCommon_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		F3210E129FD4404A012B5144 /* HaventecCommon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HaventecCommon.podspec; path = ../HaventecCommon.podspec; sourceTree = "<group>"; };
+		E34A2755221672DE00FB5DB4 /* ResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
+		E3A63B91220D2C0C0053B692 /* App.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = App.plist; sourceTree = "<group>"; };
+		E3A63B94221113880053B692 /* App.example.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = App.example.plist; sourceTree = "<group>"; };
+		E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaventecCommonTest.swift; sourceTree = "<group>"; };
+		E3C3ABE9220580E50072D5C2 /* AddDeviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceResponse.swift; sourceTree = "<group>"; };
+		E3C3ABED22058A0B0072D5C2 /* ActivateDeviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateDeviceResponse.swift; sourceTree = "<group>"; };
+		F3210E129FD4404A012B5144 /* HaventecCommon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HaventecCommon.podspec; path = ../HaventecCommon.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,7 @@
 		607FACD21AFB9204008FA782 /* Example for HaventecCommon */ = {
 			isa = PBXGroup;
 			children = (
+				E3C3ABE82205809A0072D5C2 /* Models */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -119,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACD41AFB9204008FA782 /* Info.plist */,
+				E3A63B91220D2C0C0053B692 /* App.plist */,
+				E3A63B94221113880053B692 /* App.example.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -126,8 +139,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -157,6 +170,16 @@
 				1DD45C37BCAE579C752101E8 /* Pods_HaventecCommon_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3C3ABE82205809A0072D5C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3C3ABE9220580E50072D5C2 /* AddDeviceResponse.swift */,
+				E3C3ABED22058A0B0072D5C2 /* ActivateDeviceResponse.swift */,
+				E34A2755221672DE00FB5DB4 /* ResponseStatus.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +212,6 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				B1B6513C0B1922C8C44DCA07 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,7 +241,7 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 47ABDKPX75;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -248,6 +270,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A63B95221113880053B692 /* App.example.plist in Resources */,
+				E3A63B92220D2C0C0053B692 /* App.plist in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -330,30 +354,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B1B6513C0B1922C8C44DCA07 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HaventecCommon_Tests/Pods-HaventecCommon_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HaventecCommon_Tests/Pods-HaventecCommon_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -363,6 +363,9 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				E3C3ABEA220580E50072D5C2 /* AddDeviceResponse.swift in Sources */,
+				E3C3ABEE22058A0B0072D5C2 /* ActivateDeviceResponse.swift in Sources */,
+				E34A2756221672DE00FB5DB4 /* ResponseStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				E3C3ABE722015A640072D5C2 /* HaventecCommonTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +457,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -499,6 +503,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -539,6 +544,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 913341843CE1BA3DA37E12C2 /* Pods-HaventecCommon_Tests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 47ABDKPX75;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -552,6 +558,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/HaventecCommon_Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HaventecCommon_Example.app/HaventecCommon_Example";
@@ -562,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3507711FD28E7598069AA5FC /* Pods-HaventecCommon_Tests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 47ABDKPX75;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -571,6 +580,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/HaventecCommon_Tests-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HaventecCommon_Example.app/HaventecCommon_Example";
@@ -587,7 +597,7 @@
 				607FACEE1AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "HaventecCommon_Example" */ = {
 			isa = XCConfigurationList;
@@ -596,7 +606,7 @@
 				607FACF11AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "HaventecCommon_Tests" */ = {
 			isa = XCConfigurationList;
@@ -605,7 +615,7 @@
 				607FACF41AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
