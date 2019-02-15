@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   App.example.plist
+   HaventecCommon
+
+   Created by Clifford Phan on 11/2/19.
+   Copyright (c) 2019 CocoaPods. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+    	<key>applicationuuid</key>
+    	<string>INSERT VALUE HERE</string>
+    	<key>haventecEmail</key>
+    	<string>INSERT VALUE HERE</string>
+    	<key>haventecUsername</key>
+    	<string>INSERT VALUE HERE</string>
+    	<key>pinCode</key>
+    	<string>INSERT VALUE HERE</string>
+    	<key>serverUrl</key>
+    	<string>INSERT VALUE HERE</string>
+    	<key>apiKey</key>
+    	<string>INSERT VALUE HERE</string>    
+    </dict>
+</plist>
