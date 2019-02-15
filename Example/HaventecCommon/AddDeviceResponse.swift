@@ -13,9 +13,5 @@ struct AddDeviceResponse : Codable {
     var activationToken: String
     var deviceUuid: String
     var mobileNumber: String?
-    fileprivate var responseStatus: ResponseStatus
-}
-
-private struct ResponseStatus: Codable {
-    var status, message, code: String
+    var responseStatus: ResponseStatus
 }

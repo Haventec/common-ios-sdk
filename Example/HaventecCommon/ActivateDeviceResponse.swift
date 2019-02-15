@@ -11,13 +11,9 @@ import Foundation
 struct ActivateDeviceResponse: Codable {
     var accessToken: AccessToken
     var authKey: String
-    fileprivate var responseStatus: ResponseStatus
+    var responseStatus: ResponseStatus
 }
 
 struct AccessToken: Codable {
     var token, type: String
-}
-
-private struct ResponseStatus: Codable {
-    var code, message, status: String
 }

@@ -39,8 +39,12 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     @IBOutlet weak var addDeviceActivationToken: UILabel!
     @IBOutlet weak var addDeviceDeviceUuid: UILabel!
     
-    @IBOutlet weak var addDeviceResponse: UILabel!
-    @IBOutlet weak var activateDeviceResponse: UILabel!
+    @IBOutlet weak var activateDeviceStatus: UILabel!
+    @IBOutlet weak var activateDeviceMessage: UILabel!
+    @IBOutlet weak var activateDeviceCode: UILabel!
+    @IBOutlet weak var activateDeviceAuthKey: UILabel!
+    @IBOutlet weak var activateDeviceAccessTokenValue: UILabel!
+    @IBOutlet weak var activateDeviceAccessTokenType: UILabel!
     
     private func loadPropertyFile() {
         guard let fileUrl = Bundle.main.url(forResource: "App", withExtension: "plist") else { return }
@@ -58,15 +62,19 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         super.viewDidLoad()
         
         loadPropertyFile()
-//        addDevice
         // Do any additional setup after loading the view, typically from a nib.
-//        addDeviceResponse.adjustsFontSizeToFitWidth = true
-//        addDeviceResponse.lineBreakMode = NSLineBreakMode.byWordWrapping
-//        addDeviceResponse.numberOfLines = 0
+        addDeviceStatus.font = addDeviceStatus.font.withSize(10)
+        addDeviceMessage.font = addDeviceStatus.font.withSize(10)
+        addDeviceCode.font = addDeviceStatus.font.withSize(10)
+        addDeviceActivationToken.font = addDeviceStatus.font.withSize(10)
+        addDeviceDeviceUuid.font = addDeviceStatus.font.withSize(10)
         
-        activateDeviceResponse.adjustsFontSizeToFitWidth = true
-        activateDeviceResponse.lineBreakMode = NSLineBreakMode.byWordWrapping
-        activateDeviceResponse.numberOfLines = 0
+        activateDeviceStatus.font = activateDeviceStatus.font.withSize(10)
+        activateDeviceMessage.font = activateDeviceMessage.font.withSize(10)
+        activateDeviceCode.font = activateDeviceCode.font.withSize(10)
+        activateDeviceAuthKey.font = activateDeviceAuthKey.font.withSize(10)
+        activateDeviceAccessTokenValue.font = activateDeviceAccessTokenValue.font.withSize(10)
+        activateDeviceAccessTokenType.font = activateDeviceAccessTokenType.font.withSize(10)
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,7 +101,7 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 DispatchQueue.main.async {
-                    self.addDeviceResponse.text = error?.localizedDescription
+                    self.addDeviceMessage.text = "Response Status: UNSUCCESSFUL"
                 }
                 print("error=\(error!)")
                 return
@@ -101,7 +109,6 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
 
             let responseString = String(data: data, encoding: .utf8)
             DispatchQueue.main.async {
-                self.addDeviceResponse.text = responseString
                 let jsonData = responseString!.data(using: .utf8)!
                 let decoder = JSONDecoder()
 
@@ -109,6 +116,12 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
                     let response = try decoder.decode(AddDeviceResponse.self, from: jsonData)
                     self.deviceUuid = response.deviceUuid
                     self.activationToken = response.activationToken
+                    
+                    self.addDeviceCode.text = "Response Code: " + response.responseStatus.code
+                    self.addDeviceMessage.text = "Response Message: " + response.responseStatus.message
+                    self.addDeviceStatus.text = "Response Status: " + response.responseStatus.status
+                    self.addDeviceDeviceUuid.text = "Device UUID: " + self.deviceUuid
+                    self.addDeviceActivationToken.text = "Activation Token: " +  self.activationToken
                 } catch {
                     print("Unexpected error: \(error)")
                     return
@@ -144,7 +157,7 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 DispatchQueue.main.async {
-                    self.activateDeviceResponse.text = error?.localizedDescription
+                    self.activateDeviceMessage.text = "Response Status: UNSUCCESSFUL"
                 }
                 print("error=\(error!)")
                 return
@@ -152,7 +165,6 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
 
             let responseString = String(data: data, encoding: .utf8)
             DispatchQueue.main.async {
-                self.activateDeviceResponse.text = responseString
                 let jsonData = responseString!.data(using: .utf8)!
                 let decoder = JSONDecoder()
 
@@ -160,6 +172,13 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
                     let response = try decoder.decode(ActivateDeviceResponse.self, from: jsonData)
                     self.authKey = response.authKey
                     self.accessToken = response.accessToken
+                    
+                    self.activateDeviceCode.text = "Response Code: " + response.responseStatus.code
+                    self.activateDeviceMessage.text = "Response Message: " + response.responseStatus.message
+                    self.activateDeviceStatus.text = "Response Status: " + response.responseStatus.status
+                    self.activateDeviceAuthKey.text = "Auth key: " + self.authKey
+                    self.activateDeviceAccessTokenValue.text = "Token: " + self.accessToken.token
+                    self.activateDeviceAccessTokenType.text = "Token Type: " + self.accessToken.type
                 } catch {
                     print("Unexpected error: \(error)")
                     return
