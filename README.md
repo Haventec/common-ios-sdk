@@ -9,7 +9,7 @@
 To run the example project, you need to perform the following:
 
 1. Clone the repo
-2. Update the app configuration file in "/Example/HaventecCommon/App.example.plist" with appropriate values
+2. Update the app configuration file in "/Example/HaventecCommon/App.example.plist" from project directory or in "Supporting Files" group in Xcode project, with the appropriate values
 3. Rename "/Example/HaventecCommon/App.example.plist" to "/Example/HaventecCommon/App.plist" for the app target build to use that config.
 4. Finally, run the HaventecCommon-Example target build on a iOS device in xCode.
 

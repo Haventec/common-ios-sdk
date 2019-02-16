@@ -9,7 +9,7 @@
 -->
 <plist version="1.0">
     <dict>
-    	<key>applicationuuid</key>
+    	<key>applicationUuid</key>
     	<string>INSERT VALUE HERE</string>
     	<key>haventecEmail</key>
     	<string>INSERT VALUE HERE</string>
