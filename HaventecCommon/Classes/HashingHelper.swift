@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CommonCrypto
+import CryptoSwift
 
 /// Helper class for hashing related functions for the HaventecCommon module
 class HashingHelper {
@@ -66,16 +66,21 @@ class HashingHelper {
             throw HaventecCommonException.hashPin(CommonErrorCodes.nonUtf8EncodingFormat.rawValue)
         }
         
-        let salt: String = String(bytes: saltBytes, encoding: .utf8)!
-        guard let data = (salt + pin).data(using: .utf8) else { return nil }
-        
-        /// Get Digest
-        let dataNS = data as NSData
-        var digest = [UInt8](repeating: 0, count: Int(CC_SHA512_DIGEST_LENGTH))
-        
-        CC_SHA512(dataNS.bytes, UInt32(dataNS.length), &digest)
-        
-        /// Return base 64 encoded digest
-        return Data(digest).base64EncodedString()
+        if let pinData: Data = pin.data(using: .utf8) {
+            let pinBytes:[UInt8] = [UInt8](pinData);
+            do {
+                var digest = SHA2(variant: .sha512);
+                try digest.update(withBytes: saltBytes)
+                try digest.update(withBytes: pinBytes)
+                let result = try digest.finish()
+                
+                /// Return base 64 encoded digest
+                return Data(result).base64EncodedString()
+            } catch {
+                return nil;
+            }
+        } else {
+            return nil;
+        }
     }
 }

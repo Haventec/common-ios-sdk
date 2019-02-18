@@ -1,6 +1,6 @@
 {
   "name": "HaventecCommon",
-  "version": "1.0.0",
+  "version": "0.0.4",
   "summary": "SDK providing common functions for interacting with Authenticate & Sanctum APIs.",
   "description": "'SDK providing common functions for interacting with Authenticate & Sanctum APIs.'",
   "homepage": "https://github.com/Haventec/common-ios-sdk",
@@ -9,15 +9,20 @@
     "file": "LICENSE"
   },
   "authors": {
-    "Clifford Phan": "clifford.phan@haventec.com"
+    "Haventec": "info@haventec.com"
   },
   "source": {
-    "git": "https://github.com/Clifford Phan/HaventecCommon.git",
-    "tag": "1.0.0"
+    "git": "https://github.com/Haventec/common-ios-sdk.git",
+    "tag": "0.0.4"
   },
   "platforms": {
     "ios": "8.0"
   },
   "source_files": "HaventecCommon/Classes/**/*",
+  "dependencies": {
+    "CryptoSwift": [
+
+    ]
+  },
   "swift_version": "4.2"
 }

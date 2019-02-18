@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HaventecCommon'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = 'SDK providing common functions for interacting with Authenticate & Sanctum APIs.'
 
   s.description      = <<-DESC
@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'HaventecCommon/Classes/**/*'
- 
+  s.dependency 'CryptoSwift'
+
   s.swift_version = '4.2' 
 end
