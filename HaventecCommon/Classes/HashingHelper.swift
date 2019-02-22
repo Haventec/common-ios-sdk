@@ -12,19 +12,15 @@ import CryptoSwift
 class HashingHelper {
     private static let saltByteSize: Int = 64
     
-    /// The exceptions that can be thrown from the HaventecCommon Module
-    ///
-    /// - generateSalt: Internal error that occurs in memory when random bytes can't be stored in a buffer
-    /// - hashPin: Errors relating to hashing the salt and the pin mostly regarding the salt byte array
+    /**
+     The exceptions that can be thrown from the HaventecCommon Module
+     
+     - generateSalt: Internal error that occurs in memory when random bytes can't be stored in a buffer
+     - hashPin: Errors relating to hashing the salt and the pin mostly regarding the salt byte array
+    */
     enum HaventecCommonException: Error {
         case generateSalt(String)
         case hashPin(String)
-    }
-    
-    enum CommonErrorCodes: String {
-        case randomByteFailure = "Failure in generating random bytes"
-        case incorrectSaltLength = "Failure in decoding the salt byte array due to incorrect length"
-        case nonUtf8EncodingFormat = "Failure in decoding the salt byte array due to incorrect range of byte values for decoding to a utf8 string"
     }
     
     /**

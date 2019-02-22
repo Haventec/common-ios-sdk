@@ -23,8 +23,8 @@ public class HaventecCommon {
         - pin: String representing the user's PIN
      
      - Throws: HaventecCommonException.hashPin
-         - If salt size is invalid
-         - If the salt bye array has invalid values
+        - If salt size is invalid
+        - If the salt bye array has invalid values
      
      - Returns: Hashed PIN of the correct format required for Authenticate & Sanctum
      */
