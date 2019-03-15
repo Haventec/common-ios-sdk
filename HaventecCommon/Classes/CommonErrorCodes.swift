@@ -1,8 +1,8 @@
 //
 //  CommonErrorCodes.swift
-//  CryptoSwift
+//  HaventecCommon
 //
-//  Created by Clifford Phan on 22/2/19.
+//  Created by Justin Crosbie on 15/3/19.
 //
 
 import Foundation

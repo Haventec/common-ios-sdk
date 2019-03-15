@@ -82,6 +82,7 @@
 		D26E8DC5EBC0A16CFBCFDA14777C5F07 /* SecureBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45F051EC52A04E03161C176E49DBE31 /* SecureBytes.swift */; };
 		D2EF2E145D68C285DDD05BC283CB651A /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8E029AB0747BE0C78111DE8A717DC /* Authenticator.swift */; };
 		D31B91C8329D1892C3F3A02654959B14 /* AEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D800B606CC4AB81AC873A5218572475B /* AEAD.swift */; };
+		D4463284223B4493003FDCEE /* CommonErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4463283223B4493003FDCEE /* CommonErrorCodes.swift */; };
 		D5A4CD15BCB7A1BC30F0ABCE5CBCF0F2 /* Pods-HaventecCommon_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DB86483A13CF6C765FE26B0E2A9D12B /* Pods-HaventecCommon_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D804934ED06C8881FF57C437D0A25F9A /* BlockDecryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA7B047EAFE3E2AD558D1B8AE5A775 /* BlockDecryptor.swift */; };
 		D987EBEF0E3C85D0497FE37DB5132670 /* CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE37520FE0340FCB08C29E5D4119CF9 /* CBC.swift */; };
@@ -228,6 +229,7 @@
 		CFB4C7DFD487755205035551F22D8C22 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D2DEECF693C9BB2ED2DBC5D4BA6C2CAA /* DigestType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DigestType.swift; path = Sources/CryptoSwift/DigestType.swift; sourceTree = "<group>"; };
 		D3239F34B2FA24F67686DE7919730228 /* PKCS7Padding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKCS7Padding.swift; path = Sources/CryptoSwift/PKCS/PKCS7Padding.swift; sourceTree = "<group>"; };
+		D4463283223B4493003FDCEE /* CommonErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommonErrorCodes.swift; path = HaventecCommon/Classes/CommonErrorCodes.swift; sourceTree = "<group>"; };
 		D800B606CC4AB81AC873A5218572475B /* AEAD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AEAD.swift; path = Sources/CryptoSwift/AEAD/AEAD.swift; sourceTree = "<group>"; };
 		D850611CEFEE69FA518CD87842C1D0BE /* HashingHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashingHelper.swift; path = HaventecCommon/Classes/HashingHelper.swift; sourceTree = "<group>"; };
 		D89199A162D75340DBC8299099D305F8 /* Pods_HaventecCommon_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaventecCommon_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,6 +380,7 @@
 		C14DDCFC42F5397922F91D43944F150A /* HaventecCommon */ = {
 			isa = PBXGroup;
 			children = (
+				D4463283223B4493003FDCEE /* CommonErrorCodes.swift */,
 				D850611CEFEE69FA518CD87842C1D0BE /* HashingHelper.swift */,
 				9DD20CCEF6796B4E2544A81521B55567 /* HaventecCommon.swift */,
 				386F5ED6006AB06ADA884609B241CDEB /* Pod */,
