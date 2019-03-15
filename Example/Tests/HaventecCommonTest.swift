@@ -26,7 +26,7 @@ class HaventecCommonTest: XCTestCase {
     
     func testGenerateSalt_ProperLength() {
         guard let saltByteArray: [UInt8] = try? HaventecCommon.generateSalt() else { XCTFail(exceptionThrown); return }
-        XCTAssertEqual(saltByteArray.count, 128)
+        XCTAssertEqual(saltByteArray.count, 64)
     }
 
     func testGenerateSalt_Base64Encoded() {
