@@ -21,12 +21,6 @@ class HashingHelper {
         case hashPin(String)
     }
     
-    enum CommonErrorCodes: String {
-        case randomByteFailure = "Failure in generating random bytes"
-        case incorrectSaltLength = "Failure in decoding the salt byte array due to incorrect length"
-        case nonUtf8EncodingFormat = "Failure in decoding the salt byte array due to incorrect range of byte values for decoding to a utf8 string"
-    }
-    
     /// Generates a random byte array representing the salt
     ///
     /// - Returns: Byte array representing a Base64 salted string
