@@ -3,6 +3,16 @@ import CommonCrypto
 
 /// Non-instantial class providing common functions for the Authenticate & Sanctum API
 public class HaventecCommon {
+    
+    /// The exceptions that can be thrown from the HaventecCommon Module
+    ///
+    /// - generateSalt: Internal error that occurs in memory when random bytes can't be stored in a buffer
+    /// - hashPin: Errors relating to hashing the salt and the pin mostly regarding the salt byte array
+    enum HaventecCommonException: Error {
+        case generateSalt(String)
+        case hashPin(String)
+    }
+    
     /// Generates a random byte array representing the salt
     ///
     /// - Returns: Byte array representing a Base64 salted string

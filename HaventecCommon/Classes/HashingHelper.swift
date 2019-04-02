@@ -12,15 +12,6 @@ import CryptoSwift
 class HashingHelper {
     private static let saltByteSize: Int = 128
     
-    /// The exceptions that can be thrown from the HaventecCommon Module
-    ///
-    /// - generateSalt: Internal error that occurs in memory when random bytes can't be stored in a buffer
-    /// - hashPin: Errors relating to hashing the salt and the pin mostly regarding the salt byte array
-    enum HaventecCommonException: Error {
-        case generateSalt(String)
-        case hashPin(String)
-    }
-    
     /// Generates a random byte array representing the salt
     ///
     /// - Returns: Byte array representing a Base64 salted string
@@ -41,7 +32,7 @@ class HashingHelper {
             
             return correctResult
         } else {
-            throw HaventecCommonException.generateSalt(CommonErrorCodes.randomByteFailure.rawValue)
+            throw HaventecCommon.HaventecCommonException.generateSalt(CommonErrorCodes.randomByteFailure.rawValue)
         }
     }
     
@@ -54,10 +45,10 @@ class HashingHelper {
     public static func hashPin(saltBytes: [UInt8], pin: String) throws -> String? {
         /// Validate the salt byte array
         if (saltBytes.count != saltByteSize) {
-            throw HaventecCommonException.hashPin(CommonErrorCodes.incorrectSaltLength.rawValue)
+            throw HaventecCommon.HaventecCommonException.hashPin(CommonErrorCodes.incorrectSaltLength.rawValue)
         }
         if (!saltBytes.allSatisfy({0 <= $0 && $0 <= 127})) {
-            throw HaventecCommonException.hashPin(CommonErrorCodes.nonUtf8EncodingFormat.rawValue)
+            throw HaventecCommon.HaventecCommonException.hashPin(CommonErrorCodes.nonUtf8EncodingFormat.rawValue)
         }
         
         if let pinData: Data = pin.data(using: .utf8) {
