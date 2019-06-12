@@ -20,6 +20,7 @@
 		E3C3ABE722015A640072D5C2 /* HaventecCommonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */; };
 		E3C3ABEA220580E50072D5C2 /* AddDeviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE9220580E50072D5C2 /* AddDeviceResponse.swift */; };
 		E3C3ABEE22058A0B0072D5C2 /* ActivateDeviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABED22058A0B0072D5C2 /* ActivateDeviceResponse.swift */; };
+		E3DFF89322B07C0D007D2BF4 /* CrossPlatformTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DFF89122B07C0D007D2BF4 /* CrossPlatformTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaventecCommonTest.swift; sourceTree = "<group>"; };
 		E3C3ABE9220580E50072D5C2 /* AddDeviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceResponse.swift; sourceTree = "<group>"; };
 		E3C3ABED22058A0B0072D5C2 /* ActivateDeviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateDeviceResponse.swift; sourceTree = "<group>"; };
+		E3DFF89122B07C0D007D2BF4 /* CrossPlatformTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossPlatformTest.swift; sourceTree = "<group>"; };
 		F3210E129FD4404A012B5144 /* HaventecCommon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HaventecCommon.podspec; path = ../HaventecCommon.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */,
+				E3DFF89122B07C0D007D2BF4 /* CrossPlatformTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3C3ABE722015A640072D5C2 /* HaventecCommonTest.swift in Sources */,
+				E3DFF89322B07C0D007D2BF4 /* CrossPlatformTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
