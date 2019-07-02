@@ -18,7 +18,7 @@ class BackwardsCompatibleTest: XCTestCase {
     let previousHashedPin = "EGBI5M+7JMvX8ZcetCcoBw86UuApcNfdrHsDFZ4PW6bojf3zKcqaTNdX+zAxrgysjxPAtvIMaHTlVTithmPaMg=="
     
     func testHashPin() {
-        guard let currentHashedPin = try? HaventecCommon.hashPin(saltBytes: previousSaltBytes, pin: previousPin) else { XCTFail(); return }
+        guard let currentHashedPin: String? = try? HaventecCommon.hashPin(saltBytes: previousSaltBytes, pin: previousPin) else { XCTFail(); return }
         XCTAssertEqual(currentHashedPin, previousHashedPin)
     }
 }
