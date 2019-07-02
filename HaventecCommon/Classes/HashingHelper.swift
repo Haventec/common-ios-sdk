@@ -56,6 +56,9 @@ class HashingHelper {
      */
     public static func hashPin(saltBytes: [UInt8], pin: String) throws -> String? {
         /// Validate the salt byte array
+        
+        print ("in HashingHelper, saltByteSize=%d, saltBytes.count=%d", saltByteSize, saltBytes.count)
+        
         if (saltBytes.count != saltByteSize) {
             throw HaventecCommon.HaventecCommonException.hashPin(CommonErrorCodes.incorrectSaltLength.rawValue)
         }
