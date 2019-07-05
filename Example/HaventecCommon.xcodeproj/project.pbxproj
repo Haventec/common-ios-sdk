@@ -17,6 +17,7 @@
 		E34A2756221672DE00FB5DB4 /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34A2755221672DE00FB5DB4 /* ResponseStatus.swift */; };
 		E3A63B92220D2C0C0053B692 /* App.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A63B91220D2C0C0053B692 /* App.plist */; };
 		E3A63B95221113880053B692 /* App.example.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A63B94221113880053B692 /* App.example.plist */; };
+		E3AC7A3522CC1CDB006BA5D7 /* BackwardsCompatibleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AC7A3422CC1CDB006BA5D7 /* BackwardsCompatibleTest.swift */; };
 		E3C3ABE722015A640072D5C2 /* HaventecCommonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */; };
 		E3C3ABEA220580E50072D5C2 /* AddDeviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABE9220580E50072D5C2 /* AddDeviceResponse.swift */; };
 		E3C3ABEE22058A0B0072D5C2 /* ActivateDeviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C3ABED22058A0B0072D5C2 /* ActivateDeviceResponse.swift */; };
@@ -54,6 +55,7 @@
 		E34A2755221672DE00FB5DB4 /* ResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
 		E3A63B91220D2C0C0053B692 /* App.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = App.plist; sourceTree = "<group>"; };
 		E3A63B94221113880053B692 /* App.example.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = App.example.plist; sourceTree = "<group>"; };
+		E3AC7A3422CC1CDB006BA5D7 /* BackwardsCompatibleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackwardsCompatibleTest.swift; sourceTree = "<group>"; };
 		E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaventecCommonTest.swift; sourceTree = "<group>"; };
 		E3C3ABE9220580E50072D5C2 /* AddDeviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceResponse.swift; sourceTree = "<group>"; };
 		E3C3ABED22058A0B0072D5C2 /* ActivateDeviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateDeviceResponse.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				E3C3ABE622015A640072D5C2 /* HaventecCommonTest.swift */,
 				E3DFF89122B07C0D007D2BF4 /* CrossPlatformTest.swift */,
+				E3AC7A3422CC1CDB006BA5D7 /* BackwardsCompatibleTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3C3ABE722015A640072D5C2 /* HaventecCommonTest.swift in Sources */,
+				E3AC7A3522CC1CDB006BA5D7 /* BackwardsCompatibleTest.swift in Sources */,
 				E3DFF89322B07C0D007D2BF4 /* CrossPlatformTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
