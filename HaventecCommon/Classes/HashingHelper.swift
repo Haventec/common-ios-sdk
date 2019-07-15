@@ -10,6 +10,7 @@ import CryptoSwift
 
 /// Helper class for hashing related functions for the HaventecCommon module
 class HashingHelper {
+    private static let prevSaltByteSize: Int = 128
     private static let saltByteSize: Int = 64
     
     /**
@@ -56,10 +57,7 @@ class HashingHelper {
      */
     public static func hashPin(saltBytes: [UInt8], pin: String) throws -> String? {
         /// Validate the salt byte array
-        
-        print ("in HashingHelper, saltByteSize=%d, saltBytes.count=%d", saltByteSize, saltBytes.count)
-        
-        if (saltBytes.count != saltByteSize) {
+        if (saltBytes.count != saltByteSize && saltBytes.count != prevSaltByteSize) {
             throw HaventecCommon.HaventecCommonException.hashPin(CommonErrorCodes.incorrectSaltLength.rawValue)
         }
         if (!saltBytes.allSatisfy({0 <= $0 && $0 <= 127})) {
