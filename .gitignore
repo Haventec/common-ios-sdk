@@ -38,3 +38,10 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 # Pods/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
