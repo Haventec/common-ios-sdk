@@ -1,13 +1,13 @@
 PODS:
   - CryptoSwift (0.14.0)
-  - HaventecCommon (0.0.5):
+  - HaventecCommon (1.1.0):
     - CryptoSwift
 
 DEPENDENCIES:
   - HaventecCommon (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - CryptoSwift
 
 EXTERNAL SOURCES:
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
-  HaventecCommon: a2cbe6c66d052885c7bfbd777788702869e8c41d
+  HaventecCommon: eb735d8c68a98627601a76fec2d440b3426946ae
 
 PODFILE CHECKSUM: 33ac72f668edc745b0f11c685a00b9c26a694825
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.10.1
