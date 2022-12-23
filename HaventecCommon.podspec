@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HaventecCommon'
-  s.version          = '1.1.0'
+  s.version          = '1.2.0'
   s.summary          = 'SDK providing common functions for interacting with Authenticate & Sanctum APIs.'
 
   s.description      = <<-DESC
