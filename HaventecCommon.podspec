@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HaventecCommon'
-  s.version          = '1.0.0'
+  s.version          = '1.1.0'
   s.summary          = 'SDK providing common functions for interacting with Authenticate & Sanctum APIs.'
 
   s.description      = <<-DESC
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Haventec' => 'info@haventec.com' }
   s.source           = { :git => 'https://github.com/Haventec/common-ios-sdk.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'HaventecCommon/Classes/**/*'
   s.dependency 'CryptoSwift'
